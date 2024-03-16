@@ -18,7 +18,11 @@ const routes = [
         meta: {
           pageTitle: 'My Wallets'
         }
-    }
+    },
+    {
+      path: "/:catchAll(.*)",
+      component: () => import(/* webpackChunkName: "about" */ '../views/NotFound.vue')
+    },
 ]
 
 export default routes
