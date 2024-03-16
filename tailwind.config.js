@@ -9,9 +9,20 @@ module.exports = {
         secondary: '#FFF0EB',
         white: '#FFFFFF',
         success: '#19D076',
+        grey: {
+         1: '#FAFAFA',
+         2: '#FDFDFD'
+        },
         error: '#E5363D',
-        text1: '#1B212D',
-        text2: '#929EAE'
+        textColor: {
+          1: '#1B212D',
+          2: '#929EAE',
+          3: '#78778B'
+        },
+        dark : {
+          1: '#201E34',
+          2: '#1E1C30'
+        }
       },
       fontSize: {
         size1: ['1.5625rem', '1.89125rem'], // fontSize: 25px line-height: 30.26px
