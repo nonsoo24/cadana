@@ -1,6 +1,6 @@
 <template>
   <div class="flex items-center justify-between">
-    <div class="flex items-center gap-2 w-[570px] mb-4">
+    <div class="flex items-center gap-2 w-[570px]" :class="listWrapper">
       <figure>
         <img :src="image" :alt="alt" :class="imgClass" />
       </figure>
@@ -43,6 +43,10 @@ export default {
       default: "",
     },
     imgClass: {
+      type: String,
+      default: "",
+    },
+    listWrapper: {
       type: String,
       default: "",
     },

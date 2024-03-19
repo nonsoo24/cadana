@@ -1,7 +1,7 @@
 <template>
   <TransactionList
     text="Today"
-    :data="allPayments"
+    :data="regularPayments"
     imgClass="w-[43px] h-[43px] rounded-full"
   />
 </template>
@@ -20,7 +20,7 @@ export default {
   },
 
   setup() {
-    const allPayments = ref([
+    const regularPayments = ref([
       {
         title: "Payoneer",
         subtitle: "20 Apr 2022, 06:55 PM",
@@ -36,7 +36,7 @@ export default {
     ]);
 
     return {
-      allPayments,
+      regularPayments,
     };
   },
 };
