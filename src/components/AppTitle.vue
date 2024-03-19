@@ -9,7 +9,7 @@
 import { ref, watchEffect } from 'vue';
 
 export default {
-  name: 'HeaderTitle',
+  name: 'AppTitle',
   props: {
     title: String,
     subtitle: {

@@ -53,13 +53,13 @@
           <div class="border-b border-b-grey-3 w-[289px]" />
         </div>
         <div class="grid grid-cols-2 gap-5">
-          <HeaderTitle
+          <AppTitle
             title="Currency"
             subtitle="USD / US Dollar"
             titleClass="!text-textColor-2 !text-size4 font-medium text-left"
             subtitleClass="font-semibold !text-size4 !text-textColor-1 text-left"
           />
-          <HeaderTitle
+          <AppTitle
             title="Status"
             subtitle="Active"
             titleClass="font-medium !text-size4 !text-textColor-2 text-left"
@@ -75,14 +75,14 @@
       />
     </div>
     <section>
-      <HeaderTitle
+      <AppTitle
         title="My Payments"
         titleClass="font-semibold !text-size2 !text-textColor-1 text-left mb-4"
       />
       <AppTab :tabs="tabs" @tab-click="changeTab" />
 
       <section>
-        <HeaderTitle
+        <AppTitle
           title="Upcoming Payments"
           titleClass="font-semibold !text-size2 !text-textColor-1 text-left mb-4 mt-6"
         />
@@ -98,7 +98,7 @@
 
 <script>
 import { ref } from "vue";
-import HeaderTitle from "../components/HeaderTitle.vue";
+import AppTitle from "../components/AppTitle.vue";
 import TransactionList from "../components/TransactionList.vue";
 import AppButton from "../components/forms/AppButton.vue";
 import AppTab from "../components/AppTab.vue";
@@ -115,7 +115,7 @@ import VisaLogo from "../assets/visa.png";
 export default {
   name: "MyWallets",
   components: {
-    HeaderTitle,
+    AppTitle,
     TransactionList,
     AppTab,
     AppIcon,

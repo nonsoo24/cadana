@@ -1,5 +1,5 @@
 <template>
-  <HeaderTitle
+  <AppTitle
     :subtitle="text"
     subtitleClass="font-normal !text-textColor-2 text-left mb-6"
   />
@@ -18,13 +18,13 @@
 
 <script>
 import AppListItem from "./AppListItem.vue";
-import HeaderTitle from "./HeaderTitle.vue";
+import AppTitle from "./AppTitle.vue";
 
 export default {
   name: "TransactionList",
   components: {
     AppListItem,
-    HeaderTitle,
+    AppTitle,
   },
   props: {
     data: Array,

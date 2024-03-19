@@ -4,7 +4,7 @@
       <figure>
         <img :src="image" :alt="alt" :class="imgClass" />
       </figure>
-      <HeaderTitle
+      <AppTitle
         :title="title"
         :subtitle="subtitle"
         :titleClass="titleClass"
@@ -17,12 +17,12 @@
 </template>
 
 <script>
-import HeaderTitle from "./HeaderTitle.vue";
+import AppTitle from "./AppTitle.vue";
 
 export default {
   name: "AppListItem",
   components: {
-    HeaderTitle,
+    AppTitle,
   },
   props: {
     title: String,
