@@ -4,9 +4,12 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
+      fontFamily: {
+        inter: ['Inter', 'sans-serif'],
+      },
       colors: {
-        primary: '#E75423',
-        secondary: '#FFF0EB',
+        primary: 'var(--primary-color)',
+        secondary: 'var(--secondary-color)',
         white: '#FFFFFF',
         success: '#19D076',
         grey: {

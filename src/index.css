@@ -3,6 +3,16 @@
 @tailwind utilities;
 
 * {
-    margin: 0;
-    padding: 0;
-  }
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary-color: #E75423;
+  --secondary-color: #FFF0EB;
+}
+
+html,
+body {
+  background-color: white;
+}
