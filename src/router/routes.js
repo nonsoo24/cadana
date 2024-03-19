@@ -1,28 +1,40 @@
-
-
+import AppLayout from '../layouts/AppLayout.vue'
 const routes = [
-    {
-      path: '/',
-      name: 'Dashboard',
-      component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+  {
+    path: "/",
+    name: "dashboard",
+    component: () => import("../pages/MyDashboard.vue"),
+    meta: {
+      pageTitle: "Dashboard",
+      layout: AppLayout
     },
-    {
-      path: '/invoices',
-      name: 'Invoices',
-      component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+  },
+  {
+    path: "/invoices",
+    name: "invoices",
+    component: () => import("../pages/MyInvoices.vue"),
+    meta: {
+      pageTitle: "Invoices",
+      layout: AppLayout
     },
-    {
-        path: '/my-wallets',
-        name: 'Wallets',
-        component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
-        meta: {
-          pageTitle: 'My Wallets'
-        }
+  },
+  {
+    path: "/my-wallets",
+    name: "wallets",
+    component: () => import("../pages/MyWallets.vue"),
+    meta: {
+      pageTitle: "My Wallets",
+      layout: AppLayout
     },
-    {
-      path: "/:catchAll(.*)",
-      component: () => import(/* webpackChunkName: "about" */ '../views/NotFound.vue')
+  },
+  {
+    path: "/:catchAll(.*)",
+    component: () => import("../pages/NotFound.vue"),
+    meta: {
+      pageTitle: "Not Found",
+      layout: AppLayout
     },
-]
+  },
+];
 
-export default routes
+export default routes;
