@@ -6,9 +6,9 @@
       <NavBar />
 
       <div
-        class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-100 dark:bg-gray-800"
+        class="flex-1 overflow-x-hidden overflow-y-auto bg-white dark:bg-gray-800"
       >
-        <div class="pb-16 ml-80 mt-10">
+        <div class=" ml-72 pt-16 pr-24">
           <slot />
         </div>
       </div>
