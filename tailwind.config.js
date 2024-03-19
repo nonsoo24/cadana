@@ -11,7 +11,9 @@ module.exports = {
         success: '#19D076',
         grey: {
          1: '#FAFAFA',
-         2: '#FDFDFD'
+         2: '#FDFDFD',
+         3: '#F5F5F5',
+         4: '#626260'
         },
         error: '#E5363D',
         textColor: {
@@ -29,6 +31,7 @@ module.exports = {
         size2: ['1.25rem', '1.5125rem'], // fontSize: 20px line-height: 24.2px
         size3: ['1rem', '1.21rem'], // fontSize: 16px line-height: 19.36px
         size4: ['0.875rem', '1.05875rem'], // fontSize: 14px line-height: 16.94px
+        size5: ['0.75rem', '1.06875rem'], // fontSize: 12px line-height: 17.1px
       },
     },
   },
