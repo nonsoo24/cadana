@@ -14,11 +14,18 @@ export default {
 </script>
 
 <style>
+@font-face {
+  font-family: 'Inter';
+  src: url("./assets/fonts/inter/Inter-Medium.ttf"),
+    url("./assets/fonts/inter/Inter-Bold.ttf"),
+    url("./assets/fonts/inter/Inter-Black.ttf"),
+    url("./assets/fonts/inter/Inter-SemiBold.ttf");
+}
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  background-color: white !important;
+
 }
 </style>
