@@ -1,21 +1,38 @@
 <template>
-    <nav className="fixed h-12 p-5 bg-white w-auto border border-b-2 border-grey-200 flex  justify-between items-center">
-        <p>{{$route.meta.pageTitle || 'Not Found'}}</p>
-        <!-- <div>
-            <AppIcon name="moon" />
-        </div> -->
+    <nav className="fixed h-6 py-9 px-7 bg-white w-full border border-b border-grey-1 flex justify-between items-center ">
+        <p class=" font-semibold text-size1 text-textColor-1">{{$route.meta.pageTitle || ''}}</p>
+        <div class="flex items-center gap-11">
+          <img :src="Moon" alt="dropdown-icon" width="25px" height="25px" class="cursor-pointer" />
+          <AppDropdown :options="dropdownOptions" />
+        </div>
       </nav>
 </template>
 
 <script>
-// import AppIcon from './AppIcon.vue'
+import {ref} from 'vue'
+import AppDropdown from '../components/AppDropdown.vue'
+import Moon from  '../assets/moon.png'
 export default {
   name: 'NavBar',
   components: {
-    // AppIcon
+    AppDropdown
   },
-  props: {
-    msg: String
+  setup() {
+    const dropdownOptions = ref([
+      {
+        label: 'Profile',
+        route: '/'
+      },
+      {
+        label: 'Settings',
+        route: '/'
+      },
+    ])
+
+    return {
+      dropdownOptions,
+      Moon
+    }
   }
 }
 </script>

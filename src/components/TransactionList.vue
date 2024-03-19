@@ -12,6 +12,7 @@
     :alt="item.alt"
     :rightText="item.rightText"
     :imgClass="imgClass"
+    listWrapper="!mb-5"
   />
 </template>
 
