@@ -3,7 +3,7 @@ const routes = [
   {
     path: "/",
     name: "dashboard",
-    component: () => import("../pages/MyDashboard.vue"),
+    component: () => import("../pages/AppDashboard.vue"),
     meta: {
       pageTitle: "Dashboard",
       layout: AppLayout
@@ -12,7 +12,7 @@ const routes = [
   {
     path: "/invoices",
     name: "invoices",
-    component: () => import("../pages/MyInvoices.vue"),
+    component: () => import("../pages/AppInvoices.vue"),
     meta: {
       pageTitle: "Invoices",
       layout: AppLayout
