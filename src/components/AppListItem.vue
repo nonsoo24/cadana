@@ -1,14 +1,14 @@
 <template>
-  <div class="flex item-center justify-between">
-    <div class="flex items-center gap-2">
+  <div class="flex items-center justify-between">
+    <div class="flex items-center gap-2 w-[570px] mb-4">
       <figure>
-        <img :src="image" :alt="alt" />
+        <img :src="image" :alt="alt" :class="imgClass" />
       </figure>
-      <Title
+      <HeaderTitle
         :title="title"
         :subtitle="subtitle"
-        titleStyle="text-size4 font-semibold text-textColor-1"
-        subtitleStyle="text-size4 font-medium text-textColor-2 mt-4"
+        :titleClass="titleClass"
+        :subtitleClass="subtitleClass"
       />
     </div>
 
@@ -17,19 +17,43 @@
 </template>
 
 <script>
-import Title from "./Title.vue";
+import HeaderTitle from "./HeaderTitle.vue";
 
 export default {
   name: "AppListItem",
   components: {
-    Title,
+    HeaderTitle,
   },
   props: {
     title: String,
-    subtitle: String,
-    image: String,
-    alt: String,
-    rightText: String,
+    subtitle: {
+      type: String,
+      default: "",
+    },
+    image: {
+      type: String,
+      default: "",
+    },
+    alt: {
+      type: String,
+      default: "alt",
+    },
+    rightText: {
+      type: String,
+      default: "",
+    },
+    imgClass: {
+      type: String,
+      default: "",
+    },
+    titleClass: {
+      type: String,
+      default: "text-size4 font-semibold text-textColor-1 text-left",
+    },
+    subtitleClass: {
+      type: String,
+      default: "text-size4 font-medium text-textColor-2 text-left",
+    },
   },
 };
 </script>
