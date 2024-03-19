@@ -146,13 +146,13 @@ export default {
         title: "Facebooks Ads",
         subtitle: "20 Apr 2022, 06:55 PM",
         image: require("../assets/facebook.png"),
-        rightText: toAmount(toSign(400), CURRENCY_CODES.USD),
+        rightText: `+ ${toAmount(toSign(400), CURRENCY_CODES.USD)}`,
       },
       {
         title: "LinkedIn Ads",
         subtitle: "18 Apr 2022, 08:58 PM",
         image: require("../assets/linkedin.png"),
-        rightText: toAmount(toSign(200.5), CURRENCY_CODES.USD),
+        rightText: `+ ${toAmount(toSign(200.5), CURRENCY_CODES.USD)}`,
       },
     ]);
 
