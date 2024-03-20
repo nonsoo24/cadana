@@ -44,12 +44,23 @@ When you face issue with node_module try this steps into your terminal
 1. rm -rf node_modules
 2. yarn install
 
-## Libraries
+## Tools Used
 
-- [Tailwind CSS](https://tailwindcss.com/)
+- HTML5
+- CSS3
+- JavaScript
+- Vue 3
+- Tailwind CSS
+- Vue router
+- Vue Use
+- Storybook
+
+## Credits
+
 - [Vue](https://vuejs.org/guide/introduction.html)
-- [Eslint](http://eslint.org/) ([Airbnb config](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb))
-
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Vue Use](https://vueuse.org/)
+- [Storybook](https://storybook.js.org/blog/storybook-vue3/)
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
