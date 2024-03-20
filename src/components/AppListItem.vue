@@ -1,6 +1,6 @@
 <template>
-  <div class="flex items-center justify-between">
-    <div class="flex items-center gap-2 w-[570px]" :class="listWrapper">
+  <div class="flex items-center justify-between" :class="listWrapper">
+    <div class="flex items-center gap-2 w-[570px]">
       <figure>
         <img :src="image" :alt="alt" :class="imgClass" />
       </figure>
@@ -12,7 +12,7 @@
       />
     </div>
 
-    <p>{{ rightText }}</p>
+    <p class="dark:text-white text-textColor-1 font-semibold text-size3">{{ rightText }}</p>
   </div>
 </template>
 
@@ -52,11 +52,11 @@ export default {
     },
     titleClass: {
       type: String,
-      default: "text-size4 font-semibold text-textColor-1 text-left",
+      default: "text-size4 font-semibold text-textColor-1 text-left dark:text-white",
     },
     subtitleClass: {
       type: String,
-      default: "text-size4 font-medium text-textColor-2 text-left",
+      default: "text-size4 font-medium text-textColor-2 text-left dark:text-white pt-1",
     },
   },
 };

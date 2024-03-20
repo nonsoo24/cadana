@@ -2,7 +2,7 @@
   <transition name="customizer-transition">
     <aside
       v-if="isOpen"
-      class="top-0 left-0 z-40 w-[320px] h-screen bg-white transition-transform -translate-x-full sm:translate-x-0 border border-grey-5"
+      class="top-0 left-0 z-40 w-[320px] h-screen bg-white transition-transform -translate-x-full sm:translate-x-0 border border-grey-5 dark:bg-dark-4 dark:border-dark-4"
       aria-label="customization-panel"
     >
       <div
@@ -10,7 +10,7 @@
       >
         <AppTitle
           title="CUSTOMIZATION"
-          titleClass="font-semibold text-size4 text-textColor-1 text-left"
+          titleClass="font-semibold text-size4 text-textColor-1 text-left dark:text-textColor-2"
         />
         <button
           type="button"
@@ -21,51 +21,66 @@
           <img :src="CloseIcon" alt="close-icon" width="34px" height="20px" />
         </button>
       </div>
+
       <form>
         <fieldset>
           <div class="flex justify-center mt-10">
             <div class="w-full">
               <div class="w-full px-5">
                 <AppSelect
-                v-model="selectedFont"
+                  v-model="selectedFont"
                   id="system-font"
                   label="System Font"
                   :defaultOptionText="selectPlaceholder"
                   :options="fontTypes"
                 />
               </div>
-              <div class="border-b border-b-grey-5 w-full my-8" />
-              <div class="w-full px-5">
+              <div
+                class="border-b border-b-grey-5 w-full my-8 dark:border-b-dak-2"
+              />
+              <div class="w-full px-5 relative">
                 <AppInput
                   :value="primaryColorValue"
                   id="primary-color"
                   label="Primary Color"
                   ariaLabel="Primary Color"
                   placeholder="Enter primary color"
-                  inputClass="bg-white border border-grey-3 text-text-textColor-1 font-medium text-size4 outline-none rounded-lg focus:ring-grey-3 focus:border-grey-3 block w-full p-2.5 h-[48px]"
+                  inputClass="bg-white border border-grey-3 text-text-textColor-1 font-medium text-size4 outline-none rounded-lg focus:ring-grey-3 focus:border-grey-3 block w-full p-2.5 h-[48px] dark:text-white dark:bg-dark-4"
                   :required="true"
                   @change="handlePrimaryColor"
                 />
+                <div
+                  class="bg-primary w-[19.2px] h-[19.2px] rounded-full flex items-center justify-center absolute right-8 top-10"
+                >
+                  <div class="bg-white w-[5px] h-[5px] rounded-full"></div>
+                </div>
               </div>
-              <div class="border-b border-b-grey-5 w-full my-8" />
-              <div class="mt-4 px-5">
+              <div
+                class="border-b border-b-grey-5 w-full my-8 dark:border-b-dak-2"
+              />
+              <div class="mt-4 px-5 relative">
                 <AppInput
                   :value="secondaryColorValue"
                   id="secondary-color"
                   label="Secondary Color"
                   ariaLabel="Secondary Color"
                   placeholder="Enter secondary color"
-                  @change="handleSecondaryColor"
-                  inputClass="bg-white border border-grey-3 text-text-textColor-1 font-medium text-size4 outline-none rounded-lg focus:ring-grey-3 focus:border-grey-3 block w-full p-2.5 h-[48px]"
+                  inputClass="bg-white border border-grey-3 text-text-textColor-1 font-medium text-size4 dark:text-white outline-none rounded-lg focus:ring-grey-3 focus:border-grey-3 block w-full p-2.5 h-[48px] dark:bg-dark-4"
                   :required="true"
+                  @change="handleSecondaryColor"
                 />
+                <div
+                  class="bg-secondary w-[19.2px] h-[19.2px] rounded-full flex items-center justify-center absolute right-8 top-10"
+                >
+                  <div class="bg-white w-[5px] h-[5px] rounded-full"></div>
+                </div>
               </div>
-              <div class="border-b border-b-grey-5 w-full my-8" />
+              <div
+                class="border-b border-b-grey-5 w-full my-8 dark:border-b-dak-2"
+              />
             </div>
           </div>
-          <div
-            class="h-full px-3 py-4 overflow-y-auto bg-white dark:bg-gray-800"
-          >
+          <div class="h-full px-3 py-4 overflow-y-auto">
             <div class="absolute bottom-16">
               <div class="w-full">
                 <AppButton
@@ -128,21 +143,47 @@ export default {
       { label: "SanSerif", value: "san-serif" },
       { label: "Grotesque", value: "grotesque" },
     ]);
-
     const handlePrimaryColor = (value) => {
       primaryColorValue.value = value;
-      console.log(primaryColorValue.value, "input");
     };
 
-    const handleSecondaryColor = () => {
-      //   secondaryColorValue.value = value
+    const handleSecondaryColor = (value) => {
+      secondaryColorValue.value = value;
+    };
+    const isValidHexColor = (color) => {
+      const hexRegex = /^#?([0-9A-F]{3}|[0-9A-F]{6})$/i;
+
+      return hexRegex.test(color);
     };
 
     const onSaveTheme = () => {
-      console.log(primaryColorValue.value, secondaryColorValue.value);
-    };
+  const primaryColor = primaryColorValue.value?.target?.value || '';
+  const secondaryColor = secondaryColorValue.value?.target?.value || '';
+
+  if (!primaryColor && !secondaryColor) {
+    alert("Please provide at least one color (Primary or Secondary).");
+    return;
+  }
+
+  if (primaryColor && !isValidHexColor(primaryColor)) {
+    alert("Please enter a valid hex color code for Primary Color.");
+    return;
+  }
+
+  if (secondaryColor && !isValidHexColor(secondaryColor)) {
+    alert("Please enter a valid hex color code for Secondary Color.");
+    return;
+  }
+
+  if (primaryColor) {
+    document.documentElement.style.setProperty("--primary-color", primaryColor);
+  }
+
+  if (secondaryColor) {
+    document.documentElement.style.setProperty("--secondary-color", secondaryColor);
+  }
+};
     const onResetTheme = () => {
-      console.log(primaryColorValue.value, "reset");
       document.documentElement.style.setProperty("--primary-color", "#E75423");
       document.documentElement.style.setProperty(
         "--secondary-color",
@@ -157,15 +198,15 @@ export default {
     return {
       primaryColorValue,
       secondaryColorValue,
-      handlePrimaryColor,
-      handleSecondaryColor,
       CloseIcon,
       onSaveTheme,
       onResetTheme,
       toggleCustomizer,
+      handlePrimaryColor,
+      handleSecondaryColor,
       fontTypes,
       selectPlaceholder,
-      selectedFont
+      selectedFont,
     };
   },
 };

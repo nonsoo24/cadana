@@ -71,11 +71,11 @@ export default {
 }
 
 .button-primary {
-  @apply bg-white text-textColor-3 text-center font-semibold;
+  @apply bg-white text-textColor-3 text-center font-semibold dark:text-white dark:bg-dark-1;
 }
 
 .button-secondary {
-  @apply bg-secondary text-primary text-size4 h-[48px] font-semibold text-center;
+  @apply bg-secondary text-primary text-size4 h-[48px] font-semibold text-center hover:bg-primary hover:text-white;
 }
 
 .button:disabled {

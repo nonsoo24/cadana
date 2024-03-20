@@ -25,7 +25,7 @@ export default {
         title: "Payoneer",
         subtitle: "20 Apr 2022, 06:55 PM",
         image: require("../../assets/payoneer.png"),
-        rightText: `+ ${toAmount(toSign(4800.24), CURRENCY_CODES.USD)}`,
+        rightText: `+${toAmount(toSign(4800.24), CURRENCY_CODES.USD)}`,
       },
       {
         title: "Remitly",

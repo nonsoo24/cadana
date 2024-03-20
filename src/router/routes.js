@@ -1,4 +1,6 @@
 import AppLayout from '../layouts/AppLayout.vue'
+import WalletLayout from '../layouts/WalletLayout.vue'
+
 const routes = [
   {
     path: "/",
@@ -23,8 +25,8 @@ const routes = [
     name: "wallets",
     component: () => import("../pages/MyWallets.vue"),
     meta: {
-      pageTitle: "My Wallets",
-      layout: AppLayout
+      pageTitle: "",
+      layout: WalletLayout
     },
   },
   {

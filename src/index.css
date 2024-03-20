@@ -14,7 +14,7 @@
 
 html,
 body {
-  background-color: white;
+  @apply bg-white transition-colors duration-150 dark:bg-dark-2
 }
 
 fieldset {

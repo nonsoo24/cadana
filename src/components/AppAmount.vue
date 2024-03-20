@@ -1,12 +1,12 @@
 <template>
   <div class="flex items-center">
-    <p class="text-textColor-1 text-[20px] font-semibold text-left">
+    <p class="text-textColor-1 text-[20px] font-semibold text-left dark:text-white">
       {{ toAmount(0, currencyCode).split("").shift() }}
     </p>
-    <p class="text-textColor-1 text-[20px] font-semibold text-left">
+    <p class="text-textColor-1 text-[20px] font-semibold text-left dark:text-white">
       {{ characteristic }}
     </p>
-    <p class="text-textColor-2 text-[20px] font-semibold text-left">
+    <p class="text-textColor-2 text-[20px] font-semibold text-left dark:text-white">
       .{{ mantissa }}
     </p>
   </div>

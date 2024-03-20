@@ -2,7 +2,7 @@
   <div class="relative" @click="isOpen = !isOpen">
     <button
       type="button"
-      class="inline-flex items-center px-4 py-2 rounded-[100px] shadow-sm text-sm font-medium text-gray-700 bg-grey-1 hover:bg-gray-50 focus:outline-none w-auto gap-6 outline-none"
+      class="inline-flex items-center px-4 py-2 rounded-[100px] shadow-sm text-sm font-medium text-gray-700 bg-grey-1 hover:bg-gray-50 focus:outline-none w-auto gap-6 outline-none dark:bg-dark-1"
       aria-haspopup="true"
       aria-expanded="true"
     >
@@ -10,7 +10,7 @@
         <img :src="User" alt="user-picture" width="36px" height="36px" />
       </div>
 
-      <span class="font-semibold text-size4 text-textColor-1"
+      <span class="font-semibold text-size4 text-textColor-1 dark:text-white"
         >{{label}}</span
       >
 

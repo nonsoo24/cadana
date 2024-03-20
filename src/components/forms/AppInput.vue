@@ -1,8 +1,9 @@
 <template>
   <label
+    v-if="label"
     :id="id"
     :class="labelClass"
-    class="block font-medium text-size4 text-textColor-2"
+    class="block font-medium text-size4 text-textColor-2 mb-2"
     >{{ label }}</label
   >
   <input
@@ -89,7 +90,6 @@ export default {
 
     const handleChange = (event) => {
       inputValue.value = event.target.value;
-      emit("update:value", inputValue.value);
       if (props.onChange) {
         props.onChange(inputValue.value);
       }
@@ -105,7 +105,7 @@ export default {
     watch(
       () => props.value,
       (newValue) => {
-        inputValue.value = newValue;
+        emit("update:value", newValue);
       }
     );
 

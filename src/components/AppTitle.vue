@@ -18,11 +18,11 @@ export default {
     },
     titleClass: {
       type: String,
-      default: "text-size4 text-textColor-2",
+      default: "text-size4 text-textColor-2 dark:text-white",
     },
     subtitleClass: {
       type: String,
-      default: "text-size2 text-textColor-1",
+      default: "text-size2 text-textColor-1 dark:text-white",
     },
   },
   setup(props) {

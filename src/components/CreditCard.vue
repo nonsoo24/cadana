@@ -128,7 +128,7 @@ export default {
 }
 .card-wrapper {
   background-image: linear-gradient(180deg, #4a4a49 0%, #20201f 100%);
-  font-family: Gordita;
+  border-radius: 15px;
 }
 .card-wrapper-mastercard {
   background-image: linear-gradient(180deg, #4a4a49 0%, #20201f 100%);
@@ -149,7 +149,10 @@ export default {
 }
 
 .card-wrapper-visa {
-  background-image: rgba(149, 149, 149, 1) rgba(50, 64, 0, 1);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.1));
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+
 }
 .card-owner-visa p:first-child {
   @apply text-white text-size3 font-bold border-r border-r-grey-4 pr-3;

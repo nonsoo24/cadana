@@ -1,41 +1,40 @@
 <template>
-  <div class="justify-between items-center w-auto">
-    <div>
+  <div class="w-auto">
+    <div class=" flex justify-between items-center border-b-grey-3 dark:border-dark-3 border-b">
       <div
         :class="{
-          'border-secondary border': activeTab === index,
-          ' border-grey-3': activeTab !== index,
+          'border-secondary border-b-4 ': activeTab === index,
         }"
-        class="flex gap-8 border-b pb-1"
+        class="flex gap-8 pb-1"
       >
         <div
           v-for="(tab, index) in tabs"
           :key="index"
           @click="handleTabClick(index)"
           :class="{
-            'bg-white': activeTab === index,
-            'hover:bg-gray-100': activeTab !== index,
+            'bg-white dark:bg-dark-1 active-tab': activeTab === index,
+            'hover:text-textColor1 dark:hover:text-white': activeTab !== index,
           }"
-          class="cursor-pointer px-4 py-2 rounded-t-lg"
+          class="cursor-pointer px-4 py-2 rounded-t-lg relative flex justify-start"
         >
           <p
             :class="{
-              'text-textColor-1 font-semibold': activeTab === index,
+              'text-textColor-1 font-semibold dark:text-white': activeTab === index,
               'text-textColor-2': activeTab !== index,
             }"
-            class="text-size4"
+            class="text-size4 text-left"
           >
             {{ tab.label }}
           </p>
         </div>
-        <AppInput
-          v-model="inputValue"
-          id="search"
-          placeholder="Search"
-          @onChange="handleChange"
-          inputClass="outline-none"
-        />
       </div>
+      <AppInput
+      v-model="inputValue"
+      id="search"
+      placeholder="Search"
+      @onChange="handleChange"
+      inputClass="outline-none bg-white dark:bg-dark-1 dark:text-white text-textColor2"
+    />
     </div>
   </div>
 
@@ -87,3 +86,15 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.active-tab::before {
+content: '';
+position: absolute;
+bottom: -5px;
+background-color: #FFF0EB;
+height: 3px;
+width: 100%;
+left: 0
+}
+</style>

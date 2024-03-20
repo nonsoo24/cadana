@@ -11,12 +11,7 @@
 import { defineProps, computed } from 'vue';
 
 const icons = {
-  dropdown: '../assets/icons/dropdown.svg',
-  moon: '../assets/icons/moon.svg',
-  wallets: '../assets/icons/wallets.svg',
-  logo: '../assets/cadana-logo.svg',
-  ArrowDown: '../assets/icons/arrow-down.svg',
-  ArrowUp: '../assets/icons/arrow-up.svg',
+
 };
 
 const props = defineProps({
