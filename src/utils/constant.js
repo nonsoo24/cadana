@@ -4,6 +4,7 @@ export const CURRENCY_CODES = {
 };
 
 export const THEME_COLORS = "themeColors";
+export const DEFAULT_TITLE = "Cadana";
 
 export const ROUTES = {
   DASHBOARD: "/",
