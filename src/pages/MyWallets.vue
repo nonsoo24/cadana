@@ -1,5 +1,5 @@
 <template>
-  <section class="wrapper">
+  <section class="wrapper h-full">
     <section class="dark:bg-dark-1 bg-grey-2 py-9">
       <p class="font-semibold text-size1 text-textColor-1 dark:text-white">
         My Wallets
@@ -207,7 +207,5 @@ export default {
 .wrapper {
   display: grid;
   grid-template-columns: 1fr 2fr;
-
-  height: 100%;
 }
 </style>
