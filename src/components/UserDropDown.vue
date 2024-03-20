@@ -11,7 +11,7 @@
       </div>
 
       <span class="font-semibold text-size4 text-textColor-1"
-        >Mahfuzul Nabil</span
+        >{{label}}</span
       >
 
       <img :src="DropdownIcon" alt="dropdown-icon" width="17px" height="17px" />
@@ -46,16 +46,16 @@ import DropdownIcon from "../assets/dropdown.png";
 import User from "../assets/user.png";
 
 export default {
-  name: "AppDropdown",
+  name: "UserDropDown",
   props: {
     options: {
       type: Array,
       required: true,
     },
-    text: {
+    label: {
       type: String,
-      required: false,
-    },
+      required: true,
+    }
   },
   setup(props) {
     const selectedOption = ref(props.options[0]);
