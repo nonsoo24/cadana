@@ -40,8 +40,7 @@
 
       <div class="absolute bottom-16">
         <div class="w-[210px]">
-          <div class="border-t border-gray-200 mb-10 w-auto"></div>
-          <div class="flex gap-3 items-center">
+          <div class="flex gap-3 items-center p-3">
             <div class="w-[8px] h-[8px] rounded-full bg-grey-4"></div>
             <p
               class="text-textColor-2 text-size4 font-medium whitespace-nowrap cursor-pointer"
@@ -50,7 +49,7 @@
               Customization
             </p>
           </div>
-          <div class="flex gap-3 items-center mt-3">
+          <div class="flex gap-3 items-center mt-3 p-3">
             <div class="w-[8px] h-[8px] rounded-full bg-grey-4"></div>
             <p
               class=" text-textColor-2 text-size4 font-medium whitespace-nowrap cursor-pointer"
