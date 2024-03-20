@@ -6,7 +6,7 @@
       aria-label="customization-panel"
     >
       <div
-        class="flex justify-between items-center p-6 border-b border-b-grey-5"
+        class="flex justify-between items-center p-6 border-b border-b-grey-5 dark:border-dark-4"
       >
         <AppTitle
           title="CUSTOMIZATION"
@@ -33,10 +33,11 @@
                   label="System Font"
                   :defaultOptionText="selectPlaceholder"
                   :options="fontTypes"
+                  :value="fontTypes[0].value"
                 />
               </div>
               <div
-                class="border-b border-b-grey-5 w-full my-8 dark:border-b-dak-2"
+                class="border-b border-b-grey-5 w-full my-8 dark:border-b-dark-2"
               />
               <div class="w-full px-5 relative">
                 <AppInput
@@ -56,7 +57,7 @@
                 </div>
               </div>
               <div
-                class="border-b border-b-grey-5 w-full my-8 dark:border-b-dak-2"
+                class="border-b border-b-grey-5 w-full my-8 dark:border-b-dark-2"
               />
               <div class="mt-4 px-5 relative">
                 <AppInput
@@ -76,7 +77,7 @@
                 </div>
               </div>
               <div
-                class="border-b border-b-grey-5 w-full my-8 dark:border-b-dak-2"
+                class="border-b border-b-grey-5 w-full my-8 dark:border-b-dark-2"
               />
             </div>
           </div>
@@ -136,7 +137,7 @@ export default {
     const secondaryColorValue = ref("");
 
     const selectedFont = ref("");
-    const selectPlaceholder = ref("Choose Fonts");
+    const selectPlaceholder = ref("Select font");
     const fontTypes = ref([
       { label: "Inter", value: "inter" },
       { label: "Gordita", value: "gordita" },

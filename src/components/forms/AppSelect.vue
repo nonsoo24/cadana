@@ -5,28 +5,32 @@
       class="block mb-2 font-medium text-size4 text-textColor-2"
       >{{ label }}</label
     >
-    <select
-      :id="id"
-      v-model="selectedOption"
-      :class="inputClass"
-      @change="handleChange"
-    >
-      <option :value="defaultOptionValue" disabled>
-        {{ defaultOptionText }}
-      </option>
-      <option
-        v-for="option in options"
-        :key="option.value"
-        :value="option.value"
+    <div class="relative">
+      <select
+        :id="id"
+        v-model="selectedOption"
+        :class="inputClass"
+        @change="handleChange"
       >
-        {{ option.label }}
-      </option>
-    </select>
+        <option :value="defaultOptionValue" disabled>
+          {{ defaultOptionText }}
+        </option>
+        <option
+          v-for="option in options"
+          :key="option.value"
+          :value="option.value"
+        >
+          {{ option.label }}
+        </option>
+      </select>
+      <img :src="ChevronDown" width="12px" height="6.58px" class="absolute right-2 top-1/2 transform -translate-y-1/2" alt="chevron-down" />
+    </div>
   </div>
 </template>
 
 <script>
 import { ref } from "vue";
+import ChevronDown from "../../assets/chevron-down.png"
 
 export default {
   props: {
@@ -73,6 +77,7 @@ export default {
     return {
       selectedOption,
       handleChange,
+      ChevronDown
     };
   },
 };
