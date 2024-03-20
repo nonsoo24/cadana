@@ -26,7 +26,7 @@ const routes = [
     name: "wallets",
     component: () => import("../pages/MyWallets.vue"),
     meta: {
-      pageTitle: "",
+      title: "My Wallets",
       layout: WalletLayout,
     },
   },
