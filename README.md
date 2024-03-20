@@ -17,7 +17,7 @@ The project is configured with Vue.js 3 and Tailwind CSS.
 
 - [Node](https://nodejs.org) v18 (it is recommended to install it via [NVM](https://github.com/creationix/nvm))
 - [Yarn](https://yarnpkg.com/)
-- [Vue](https://react.dev/learn)
+- [Vue](https://vuejs.org/guide/introduction.html)
 
 ## Getting Started
 
