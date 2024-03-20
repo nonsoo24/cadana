@@ -1,37 +1,43 @@
 <template>
-  <div class=" justify-between items-center w-auto">
-  <div>
-    <div
-    :class="{
-      'border-secondary border': activeTab === index,
-      ' border-grey-3': activeTab !== index,
-    }"
-    class="flex gap-8 border-b pb-1"
-  >
-    <div
-      v-for="(tab, index) in tabs"
-      :key="index"
-      @click="handleTabClick(index)"
-      :class="{
-        'bg-white': activeTab === index,
-        'hover:bg-gray-100': activeTab !== index,
-      }"
-      class="cursor-pointer px-4 py-2 rounded-t-lg"
-    >
-      <p
+  <div class="justify-between items-center w-auto">
+    <div>
+      <div
         :class="{
-          'text-textColor-1 font-semibold': activeTab === index,
-          'text-textColor-2': activeTab !== index,
+          'border-secondary border': activeTab === index,
+          ' border-grey-3': activeTab !== index,
         }"
-        class="text-size4"
+        class="flex gap-8 border-b pb-1"
       >
-        {{ tab.label }}
-      </p>
+        <div
+          v-for="(tab, index) in tabs"
+          :key="index"
+          @click="handleTabClick(index)"
+          :class="{
+            'bg-white': activeTab === index,
+            'hover:bg-gray-100': activeTab !== index,
+          }"
+          class="cursor-pointer px-4 py-2 rounded-t-lg"
+        >
+          <p
+            :class="{
+              'text-textColor-1 font-semibold': activeTab === index,
+              'text-textColor-2': activeTab !== index,
+            }"
+            class="text-size4"
+          >
+            {{ tab.label }}
+          </p>
+        </div>
+        <AppInput
+          v-model="inputValue"
+          id="search"
+          placeholder="Search"
+          @onChange="handleChange"
+          inputClass="outline-none"
+        />
+      </div>
     </div>
-    <AppInput v-model="inputValue" placeholder="Search" @onChange="handleChange" inputClass="outline-none" />
   </div>
-  </div>
- </div>
 
   <div class="tab-content mt-3">
     <component :is="activeComponent" />

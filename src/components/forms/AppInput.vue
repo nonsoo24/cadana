@@ -1,37 +1,86 @@
 <template>
+  <label
+    :id="id"
+    :class="labelClass"
+    class="block font-medium text-size4 text-textColor-2"
+    >{{ label }}</label
+  >
   <input
     v-bind="$attrs"
+    :for="id"
+    :type="type"
     :value="inputValue"
     :placeholder="placeholder"
     @input="handleChange"
+    @change="onChange"
     @blur="handleBlur"
     :aria-label="ariaLabel"
     :class="inputClass"
+    :required="required"
+    autocomplete="off"
   />
 </template>
 
 <script>
 import { ref, watch } from "vue";
+const inputTypes = [
+  "text",
+  "email",
+  "password",
+  "number",
+  "tel",
+  "search",
+  "address",
+  "color",
+  "hidden",
+  "url",
+  "search",
+  "date",
+];
 
 export default {
   name: "AppInput",
   props: {
+    id: String,
     value: {
       type: [String, Number],
       default: "",
     },
-    placeholder:{
-        type: String,
+    label: {
+      type: String,
       default: "",
     },
-    inputClass:{
-        type: String,
+    labelClass: {
+      type: String,
       default: "",
     },
-    onChange: Function,
+    placeholder: {
+      type: String,
+      default: "",
+    },
+    inputClass: {
+      type: String,
+      default: "",
+    },
+    type: {
+      type: String,
+      required: true,
+      default: "text",
+      validator: (value) => inputTypes.includes(value),
+    },
+    required: {
+      type: Boolean,
+      default: false,
+    },
+    onChange: {
+      type: Function,
+      default: () => {},
+      required: false,
+    },
     onBlur: {
-        type: Function,
-        required: false
+      type: Function,
+      default: () => {},
+      required: false,
     },
     ariaLabel: String,
   },
@@ -40,15 +89,16 @@ export default {
 
     const handleChange = (event) => {
       inputValue.value = event.target.value;
-      emit("update:value", event.target.value);
+      emit("update:value", inputValue.value);
       if (props.onChange) {
-        props.onChange(event.target.value);
+        props.onChange(inputValue.value);
       }
     };
 
     const handleBlur = (event) => {
+      inputValue.value = event.target.value;
       if (props.onBlur) {
-        props.onBlur(event.target.value);
+        props.onBlur(inputValue.value);
       }
     };
 

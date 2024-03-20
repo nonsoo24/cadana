@@ -1,7 +1,7 @@
 <template>
   <div>
     <h3 :class="titleClass">{{ title }}</h3>
-    <p :class="subtitleClass">{{ subtitle }}</p>
+    <p v-if="subtitle" :class="subtitleClass">{{ subtitle }}</p>
   </div>
 </template>
 

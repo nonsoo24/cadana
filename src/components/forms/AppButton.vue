@@ -1,5 +1,6 @@
 <template>
   <button
+   :type="type"
     :class="[
       'button',
       {
@@ -24,6 +25,11 @@ export default {
       type: String,
       default: "primary",
       validator: (value) => ["primary", "secondary"].includes(value),
+    },
+    type: {
+      type: String,
+      default: "button",
+      validator: (value) => ["submit", "button", "reset"].includes(value),
     },
     disabled: {
       type: Boolean,
@@ -65,11 +71,11 @@ export default {
 }
 
 .button-primary {
-  @apply bg-primary text-white;
+  @apply bg-white text-textColor-3 text-center font-semibold;
 }
 
 .button-secondary {
-  @apply bg-secondary text-primary text-size4 h-[48px] font-semibold;
+  @apply bg-secondary text-primary text-size4 h-[48px] font-semibold text-center;
 }
 
 .button:disabled {

@@ -14,7 +14,7 @@
     aria-label="Sidebar"
   >
     <div class="h-full px-3 py-4 overflow-y-auto bg-grey-1 dark:bg-gray-800">
-      <ul>
+      <ul class="list-none p-0">
         <li>
           <router-link
             to="/"
@@ -75,7 +75,7 @@ export default {
   components: {
     SideNavbarItem,
   },
-  setup() {
+  setup(_, {emit}) {
     const sideMenuItems = ref([
       {
         title: "Dashboard",
@@ -94,7 +94,7 @@ export default {
       },
     ]);
     const handleCustomization = () => {
-      console.log("customization");
+      emit("open-customizer");
     };
     const onLogout = () => {
       console.log("log out");
@@ -111,12 +111,7 @@ export default {
 </script>
 
 <style scoped>
-ul {
-  list-style-type: none;
-  padding: 0;
-}
 li {
-  display: block;
-  margin: 0;
+  @apply block m-0
 }
 </style>
