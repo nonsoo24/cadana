@@ -50,11 +50,13 @@
                   :required="true"
                   @change="handlePrimaryColor"
                 />
-                <div
-                  class="bg-primary w-[19.2px] h-[19.2px] rounded-full flex items-center justify-center absolute right-8 top-10"
-                >
-                  <div class="bg-white w-[5px] h-[5px] rounded-full"></div>
-                </div>
+                <ColorIndicator
+                  backgroundColor="bg-primary"
+                  dotColor="bg-white"
+                  dotSize="w-[5px] h-[5px]"
+                  size="w-[19.2px] h-[19.2px]"
+                  position="right-8 top-10"
+                />
               </div>
               <div
                 class="border-b border-b-grey-5 w-full my-8 dark:border-b-dark-2"
@@ -70,11 +72,14 @@
                   :required="true"
                   @change="handleSecondaryColor"
                 />
-                <div
-                  class="bg-secondary w-[19.2px] h-[19.2px] rounded-full flex items-center justify-center absolute right-8 top-10"
-                >
-                  <div class="bg-white w-[5px] h-[5px] rounded-full"></div>
-                </div>
+
+                <ColorIndicator
+                  backgroundColor="bg-secondary"
+                  dotColor="bg-white"
+                  dotSize="w-[5px] h-[5px]"
+                  size="w-[19.2px] h-[19.2px]"
+                  position="right-8 top-10"
+                />
               </div>
               <div
                 class="border-b border-b-grey-5 w-full my-8 dark:border-b-dark-2"
@@ -117,6 +122,7 @@ import AppTitle from "../components/AppTitle.vue";
 import CloseIcon from "../assets/close-icon.png";
 import AppInput from "../components/forms/AppInput";
 import AppSelect from "../components/forms/AppSelect";
+import ColorIndicator from "../components/ColorIndicator";
 
 export default {
   name: "AppCustomizer",
@@ -125,6 +131,7 @@ export default {
     AppTitle,
     AppInput,
     AppSelect,
+    ColorIndicator,
   },
   props: {
     isOpen: {
@@ -158,32 +165,38 @@ export default {
     };
 
     const onSaveTheme = () => {
-  const primaryColor = primaryColorValue.value?.target?.value || '';
-  const secondaryColor = secondaryColorValue.value?.target?.value || '';
+      const primaryColor = primaryColorValue.value?.target?.value || "";
+      const secondaryColor = secondaryColorValue.value?.target?.value || "";
 
-  if (!primaryColor && !secondaryColor) {
-    alert("Please provide at least one color (Primary or Secondary).");
-    return;
-  }
+      if (!primaryColor && !secondaryColor) {
+        alert("Please provide at least one color (Primary or Secondary).");
+        return;
+      }
 
-  if (primaryColor && !isValidHexColor(primaryColor)) {
-    alert("Please enter a valid hex color code for Primary Color.");
-    return;
-  }
+      if (primaryColor && !isValidHexColor(primaryColor)) {
+        alert("Please enter a valid hex color code for Primary Color.");
+        return;
+      }
 
-  if (secondaryColor && !isValidHexColor(secondaryColor)) {
-    alert("Please enter a valid hex color code for Secondary Color.");
-    return;
-  }
+      if (secondaryColor && !isValidHexColor(secondaryColor)) {
+        alert("Please enter a valid hex color code for Secondary Color.");
+        return;
+      }
 
-  if (primaryColor) {
-    document.documentElement.style.setProperty("--primary-color", primaryColor);
-  }
+      if (primaryColor) {
+        document.documentElement.style.setProperty(
+          "--primary-color",
+          primaryColor
+        );
+      }
 
-  if (secondaryColor) {
-    document.documentElement.style.setProperty("--secondary-color", secondaryColor);
-  }
-};
+      if (secondaryColor) {
+        document.documentElement.style.setProperty(
+          "--secondary-color",
+          secondaryColor
+        );
+      }
+    };
     const onResetTheme = () => {
       document.documentElement.style.setProperty("--primary-color", "#E75423");
       document.documentElement.style.setProperty(
