@@ -1,32 +1,33 @@
-import AppLayout from '../layouts/AppLayout.vue'
-import WalletLayout from '../layouts/WalletLayout.vue'
+import AppLayout from "../layouts/AppLayout.vue";
+import WalletLayout from "../layouts/WalletLayout.vue";
+import { ROUTES } from "../utils/constant";
 
 const routes = [
   {
-    path: "/",
+    path: ROUTES.DASHBOARD,
     name: "dashboard",
     component: () => import("../pages/AppDashboard.vue"),
     meta: {
       pageTitle: "Dashboard",
-      layout: AppLayout
+      layout: AppLayout,
     },
   },
   {
-    path: "/invoices",
+    path: ROUTES.INVOICES,
     name: "invoices",
     component: () => import("../pages/AppInvoices.vue"),
     meta: {
       pageTitle: "Invoices",
-      layout: AppLayout
+      layout: AppLayout,
     },
   },
   {
-    path: "/my-wallets",
+    path: ROUTES.MY_WALLET,
     name: "wallets",
     component: () => import("../pages/MyWallets.vue"),
     meta: {
       pageTitle: "",
-      layout: WalletLayout
+      layout: WalletLayout,
     },
   },
   {
@@ -34,7 +35,7 @@ const routes = [
     component: () => import("../pages/NotFound.vue"),
     meta: {
       pageTitle: "Not Found",
-      layout: AppLayout
+      layout: AppLayout,
     },
   },
 ];
