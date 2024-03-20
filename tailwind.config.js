@@ -16,7 +16,8 @@ module.exports = {
          1: '#FAFAFA',
          2: '#FDFDFD',
          3: '#F5F5F5',
-         4: '#626260'
+         4: '#626260',
+         5: '#F2F2F2'
         },
         error: '#E5363D',
         textColor: {
