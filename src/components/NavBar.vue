@@ -1,6 +1,6 @@
 <template>
   <nav
-    className=" h-8 py-9 bg-white border border-b border-grey-1 flex justify-between items-center dark:bg-dark-2 dark:border-dark-2 w-full p-0 m-0 "
+    className=" h-8 py-9 bg-white border border-b border-grey-1 flex justify-between items-center dark:bg-dark-2 dark:border-dark-2 w-full"
   >
     <p class="font-semibold text-size1 text-textColor-1 dark:text-white pl-3">
       {{ $route.meta.pageTitle }}
