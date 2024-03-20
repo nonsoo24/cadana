@@ -34,7 +34,7 @@ The project is configured with Vue.js 3 and Tailwind CSS.
 
 ## Preview
 
-![Alt text](./src/assets/png//preview.png?raw=true "Bitcasino App")
+![Alt text](./src/assets//preview.png?raw=true "Cadana")
 
 
 ## Troubleshooting
