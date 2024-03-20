@@ -10,11 +10,24 @@
         <img :src="User" alt="user-picture" width="36px" height="36px" />
       </div>
 
-      <span class="font-semibold text-size4 text-textColor-1 dark:text-white"
-        >{{label}}</span
-      >
+      <span class="font-semibold text-size4 text-textColor-1 dark:text-white">{{
+        label
+      }}</span>
 
-      <img :src="DropdownIcon" alt="dropdown-icon" width="17px" height="17px" />
+      <img
+        v-if="isDark"
+        :src="DropdownIconDark"
+        alt="dropdown-icon"
+        width="9.92px"
+        height="9.92px"
+      />
+      <img
+        v-else
+        :src="DropdownIcon"
+        alt="dropdown-icon"
+        width="17px"
+        height="17px"
+      />
     </button>
 
     <div
@@ -43,7 +56,9 @@
 <script>
 import { ref } from "vue";
 import DropdownIcon from "../assets/dropdown.png";
+import DropdownIconDark from "../assets/dropdown-dark.png";
 import User from "../assets/user.png";
+import { useDark } from "@vueuse/core";
 
 export default {
   name: "UserDropDown",
@@ -55,9 +70,10 @@ export default {
     label: {
       type: String,
       required: true,
-    }
+    },
   },
   setup(props) {
+    const isDark = useDark();
     const selectedOption = ref(props.options[0]);
     const isOpen = ref(false);
 
@@ -71,7 +87,9 @@ export default {
       isOpen,
       selectOption,
       DropdownIcon,
+      DropdownIconDark,
       User,
+      isDark,
     };
   },
 };

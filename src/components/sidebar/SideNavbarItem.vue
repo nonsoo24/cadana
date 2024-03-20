@@ -4,8 +4,7 @@
       :to="route"
       class="flex items-center text-size4 rounded-lg gap-3 dark:text-white"
     >
-      <div class="w-[8px] h-[8px] rounded-full bg-grey-4" />
-      <!-- <img :src="image" :alt="title" width="20px" height="20px" /> -->
+      <img :src="icon" :alt="title" width="20px" height="20px" />
       <span
         :class="{
           'text-white text-size4 font-semibold': $route.path === route,
@@ -27,10 +26,10 @@ export default {
       default: "",
       required: true,
     },
-    image: {
+    icon: {
       type: String,
       default: "",
-      required: true,
+      required: false,
     },
     route: {
       type: String,

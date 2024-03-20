@@ -3,7 +3,7 @@
     className=" h-8 py-9 bg-white border border-b border-grey-1 flex justify-between items-center dark:bg-dark-2 dark:border-dark-2 w-full p-0 m-0 "
   >
     <p class="font-semibold text-size1 text-textColor-1 dark:text-white pl-3">
-      {{  $route.meta.pageTitle }}
+      {{ $route.meta.pageTitle }}
     </p>
     <div class="flex items-center gap-11">
       <button class="outline-none" v-if="!isDarkMode" @click="toggleTheme">
@@ -35,7 +35,7 @@ import { ref } from "vue";
 import UserDropDown from "../components/UserDropDown.vue";
 import Moon from "../assets/moon.png";
 import Sun from "../assets/sun.png";
-import { useDark } from '@vueuse/core'
+import { useDark } from "@vueuse/core";
 
 export default {
   name: "NavBar",
@@ -45,13 +45,11 @@ export default {
   props: {
     pageTitle: {
       type: String,
-      default: ""
-    }
-
+      default: "",
+    },
   },
   setup() {
-
-const isDark = useDark()
+    const isDark = useDark();
     const isDarkMode = ref(isDark);
     const dropdownOptions = ref([
       {
@@ -74,7 +72,6 @@ const isDark = useDark()
       Sun,
       toggleTheme,
       isDarkMode,
-
     };
   },
 };
