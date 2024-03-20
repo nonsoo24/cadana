@@ -20,3 +20,7 @@ body {
 fieldset {
   border: 0;
 }
+
+select {
+	appearance: none;
+}
