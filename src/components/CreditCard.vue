@@ -162,7 +162,7 @@ export default {
 }
 
 .card-number-visa p:first-child {
-  @apply font-bold text-textColor-1 text-[16px];
+  @apply font-bold text-textColor-1 text-[16px] dark:text-white;
   letter-spacing: 2px;
 }
 .card-expiry-visa p {

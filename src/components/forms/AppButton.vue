@@ -1,20 +1,31 @@
 <template>
-  <button
-   :type="type"
-    :class="[
-      'button',
-      {
-        [`button-${variant}`]: true,
-      },
-      width,
-      buttonClass
-    ]"
-    :disabled="disabled"
-    @click="onClick"
-  >
-    {{ icon }}
-    {{ label }}
-  </button>
+  <div>
+    <button
+      :type="type"
+      :class="[
+        'button',
+        {
+          [`button-${variant}`]: true,
+          'flex-row-reverse': rtl,
+        },
+        width,
+        buttonClass,
+      ]"
+      class="relative flex items-center justify-center"
+      :disabled="disabled"
+      @click="onClick"
+    >
+      <img
+        v-if="icon"
+        :src="icon"
+        alt="button-icon"
+        width="20px"
+        height="20px"
+        class="absolute left-[100px]"
+      />
+      {{ label }}
+    </button>
+  </div>
 </template>
 
 <script>
@@ -46,11 +57,15 @@ export default {
     label: {
       type: String,
       required: true,
-      default: ""
+      default: "",
     },
     width: {
       type: String,
       default: "w-auto",
+    },
+    rtl: {
+      type: Boolean,
+      default: false,
     },
   },
   setup(props, { emit }) {
@@ -71,7 +86,7 @@ export default {
 }
 
 .button-primary {
-  @apply bg-white text-textColor-3 text-center font-semibold dark:text-white dark:bg-dark-1;
+  @apply bg-white text-textColor-3 text-center font-semibold dark:text-white dark:bg-dark-2;
 }
 
 .button-secondary {
