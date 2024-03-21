@@ -116,13 +116,14 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import AppButton from "../components/forms/AppButton.vue";
 import AppTitle from "../components/AppTitle.vue";
 import CloseIcon from "../assets/close-icon.png";
 import AppInput from "../components/forms/AppInput";
 import AppSelect from "../components/forms/AppSelect";
 import ColorIndicator from "../components/ColorIndicator";
+import {PRIMARY_THEME_COLOR, SECONDARY_THEME_COLOR} from "../utils/constant"
 
 export default {
   name: "AppCustomizer",
@@ -188,6 +189,7 @@ export default {
           "--primary-color",
           primaryColor
         );
+        localStorage.setItem(PRIMARY_THEME_COLOR, JSON.stringify(primaryColor));
       }
 
       if (secondaryColor) {
@@ -195,6 +197,7 @@ export default {
           "--secondary-color",
           secondaryColor
         );
+        localStorage.setItem(SECONDARY_THEME_COLOR, JSON.stringify(secondaryColor));
       }
     };
     const onResetTheme = () => {
@@ -203,11 +206,32 @@ export default {
         "--secondary-color",
         "#FFF0EB"
       );
+      localStorage.removeItem(PRIMARY_THEME_COLOR);
+      localStorage.removeItem(SECONDARY_THEME_COLOR);
     };
 
     const toggleCustomizer = () => {
       emit("close-customizer");
     };
+
+    onMounted(() => {
+      const primaryTheme = JSON.parse(localStorage.getItem(PRIMARY_THEME_COLOR));
+      const secondaryTheme = JSON.parse(localStorage.getItem(SECONDARY_THEME_COLOR));
+     
+        if (primaryTheme) {
+          document.documentElement.style.setProperty(
+            "--primary-color",
+            primaryTheme
+          );
+        }
+        if (secondaryTheme) {
+          document.documentElement.style.setProperty(
+            "--secondary-color",
+            secondaryTheme
+          );
+        }
+      
+    });
 
     return {
       primaryColorValue,

@@ -7,28 +7,8 @@
 </template>
 
 <script>
-// import THEME_COLORS from "./utils/constant";
 export default {
-  name: "App",
-  setup() {
-    // const storedThemeColors = JSON.parse(localStorage.getItem(THEME_COLORS));
-    // if (storedThemeColors === null) {
-    //   const colors = {
-    //     primaryColor: "#E75423",
-    //     secondaryColor: "#FFF0EB",
-    //   };
-    //   localStorage.setItem(THEME_COLORS, JSON.stringify(colors));
-    // } else {
-    //   document.documentElement.style.setProperty(
-    //     "--primary-color",
-    //     storedThemeColors.PrimaryColor
-    //   );
-    //   document.documentElement.style.setProperty(
-    //     "--secondary-color",
-    //     storedThemeColors.SecondaryColor
-    //   );
-    // }
-  },
+  name: "App"
 };
 </script>
 

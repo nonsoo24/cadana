@@ -3,7 +3,9 @@ export const CURRENCY_CODES = {
   USD: "USD",
 };
 
-export const THEME_COLORS = "themeColors";
+export const PRIMARY_THEME_COLOR = "primary";
+export const SECONDARY_THEME_COLOR = "secondary";
+
 export const DEFAULT_TITLE = "Cadana";
 
 export const ROUTES = {
