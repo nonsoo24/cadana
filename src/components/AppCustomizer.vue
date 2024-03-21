@@ -97,6 +97,7 @@
               <div class="w-full">
                 <AppButton
                   label="Save Changes"
+                  ariaLabel="Save Changes"
                   type="button"
                   width="w-[288px]"
                   variant="secondary"
@@ -106,6 +107,7 @@
 
                 <AppButton
                   label="Reset Setting"
+                  ariaLabel="Reset Setting"
                   type="button"
                   width="w-[288px]"
                   variant="primary"

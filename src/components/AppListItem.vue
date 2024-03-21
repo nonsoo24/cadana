@@ -1,8 +1,20 @@
 <template>
-  <div class="flex items-center justify-between" :class="listWrapper">
+  <div
+    class="flex items-center justify-between"
+    :class="listWrapper"
+    role="listitem"
+    tabindex="0"
+    @keyup.enter="$emit('click')"
+  >
     <div class="flex items-center gap-2 w-[570px]">
       <figure>
-        <img :src="image" :alt="alt" :class="imgClass" />
+        <img
+          :src="image"
+          :alt="alt"
+          :class="imgClass"
+          role="img"
+          tabindex="-1"
+        />
       </figure>
       <AppTitle
         :title="title"
@@ -12,7 +24,13 @@
       />
     </div>
 
-    <p class="dark:text-white text-textColor-1 font-semibold text-size3">{{ rightText }}</p>
+    <p
+      class="dark:text-white text-textColor-1 font-semibold text-size3"
+      role="text"
+      aria-label="Right Text"
+    >
+      {{ rightText }}
+    </p>
   </div>
 </template>
 
@@ -52,11 +70,13 @@ export default {
     },
     titleClass: {
       type: String,
-      default: "text-size4 font-semibold text-textColor-1 text-left dark:text-white",
+      default:
+        "text-size4 font-semibold text-textColor-1 text-left dark:text-white",
     },
     subtitleClass: {
       type: String,
-      default: "text-size4 font-medium text-textColor-2 text-left dark:text-white pt-1",
+      default:
+        "text-size4 font-medium text-textColor-2 text-left dark:text-white pt-1",
     },
   },
 };

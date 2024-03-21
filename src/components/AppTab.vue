@@ -2,12 +2,17 @@
   <div class="w-auto">
     <div
       class="flex justify-between items-center border-b-grey-3 dark:border-dark-3 border-b"
+      role="tablist"
     >
       <div
         :class="{
           'border-secondary border-b-4 ': activeTab === index,
         }"
         class="flex gap-8 pb-1"
+        role="tab"
+        :aria-selected="activeTab === index"
+        :id="'tab-' + index"
+        tabindex="0"
       >
         <div
           v-for="(tab, index) in tabs"
@@ -36,7 +41,7 @@
     </div>
   </div>
 
-  <div class="tab-content mt-3">
+  <div class="tab-content mt-3" role="tabpanel" :aria-labelledby="'tab-'">
     <component :is="activeComponent" />
   </div>
 </template>

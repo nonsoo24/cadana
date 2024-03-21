@@ -36,6 +36,7 @@
       role="menu"
       aria-orientation="vertical"
       aria-labelledby="options-menu"
+      ref="menu"
     >
       <div class="py-1" role="none">
         <router-link
@@ -45,6 +46,8 @@
           @click.prevent="selectOption(option)"
           class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
           role="menuitem"
+          ref="menuitem"
+          :tabindex="isOpen ? 0 : -1"
         >
           {{ option.label }}
         </router-link>

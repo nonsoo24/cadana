@@ -1,7 +1,7 @@
 <template>
   <div :class="[wrapperClass, 'rounded-full']">
     <figure>
-      <img :src="image" :alt="alt" :class="imgClass" />
+      <img :src="image" :alt="alt" :class="imgClass" role="image" />
     </figure>
   </div>
 </template>

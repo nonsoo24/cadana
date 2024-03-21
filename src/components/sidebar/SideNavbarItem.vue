@@ -1,5 +1,11 @@
 <template>
-  <li :class="{ 'bg-primary rounded-lg': $route.path === route }" class="p-4 cursor-pointer">
+  <li
+    :class="{ 'bg-primary rounded-lg': $route.path === route }"
+    class="p-4 cursor-pointer"
+    tabindex="0"
+    role="menuitem"
+    @keydown.enter.prevent="activateMenuItem"
+  >
     <router-link
       :to="route"
       class="flex items-center text-size4 rounded-lg gap-3 dark:text-white"
@@ -10,7 +16,7 @@
           'text-white text-size4 font-semibold': $route.path === route,
           'text-textColor-2 text-size4 font-medium': $route.path !== route,
         }"
-        class=" whitespace-nowrap"
+        class="whitespace-nowrap"
         >{{ title }}</span
       >
     </router-link>
@@ -18,6 +24,7 @@
 </template>
 
 <script>
+import { useRouter } from "vue-router";
 export default {
   name: "SideNavbarItem",
   props: {
@@ -36,6 +43,15 @@ export default {
       default: "",
       required: true,
     },
+  },
+  setup() {
+    const router = useRouter();
+    const activateMenuItem = () => {
+      router.push(this.route);
+    };
+    return {
+      activateMenuItem,
+    };
   },
 };
 </script>

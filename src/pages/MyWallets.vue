@@ -82,6 +82,7 @@
           </div>
           <AppButton
             label="Add New Card"
+            ariaLabel="Add New Card"
             type="button"
             :icon="isDark ? PlusSecondary : PlusPrimary"
             width="w-[354px]"

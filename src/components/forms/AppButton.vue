@@ -13,6 +13,8 @@
       ]"
       class="relative flex items-center justify-center"
       :disabled="disabled"
+      :aria-label="ariaLabel"
+      :aria-disabled="disabled"
       @click="onClick"
     >
       <img
@@ -66,6 +68,10 @@ export default {
     rtl: {
       type: Boolean,
       default: false,
+    },
+    ariaLabel: {
+      type: String,
+      default: "",
     },
   },
   setup(props, { emit }) {

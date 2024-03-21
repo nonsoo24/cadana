@@ -10,6 +10,7 @@
         :id="id"
         v-model="selectedOption"
         :class="inputClass"
+        aria-label="Select an option"
         @change="handleChange"
       >
         <option :value="defaultOptionValue" disabled>
@@ -23,14 +24,20 @@
           {{ option.label }}
         </option>
       </select>
-      <img :src="ChevronDown" width="12px" height="6.58px" class="absolute right-2 top-1/2 transform -translate-y-1/2" alt="chevron-down" />
+      <img
+        :src="ChevronDown"
+        width="12px"
+        height="6.58px"
+        class="absolute right-2 top-1/2 transform -translate-y-1/2"
+        alt="chevron-down"
+      />
     </div>
   </div>
 </template>
 
 <script>
 import { ref } from "vue";
-import ChevronDown from "../../assets/chevron-down.png"
+import ChevronDown from "../../assets/chevron-down.png";
 
 export default {
   props: {
@@ -61,7 +68,7 @@ export default {
     inputClass: {
       type: String,
       default:
-      "bg-white border border-grey-3 text-text-textColor-1 font-medium text-size4 outline-none rounded-lg focus:ring-grey-3 focus:border-grey-3 block w-full p-2.5 h-[48px] dark:text-white dark:bg-dark-1"
+        "bg-white border border-grey-3 text-text-textColor-1 font-medium text-size4 outline-none rounded-lg focus:ring-grey-3 focus:border-grey-3 block w-full p-2.5 h-[48px] dark:text-white dark:bg-dark-1",
     },
   },
   emits: ["update:modelValue"],
@@ -77,7 +84,7 @@ export default {
     return {
       selectedOption,
       handleChange,
-      ChevronDown
+      ChevronDown,
     };
   },
 };
