@@ -1,25 +1,42 @@
 <template>
   <label
     v-if="label"
-    :id="id"
+    :for="id"
     :class="labelClass"
     class="block font-medium text-size4 text-textColor-2 mb-2"
     >{{ label }}</label
   >
-  <input
-    v-bind="$attrs"
-    :for="id"
-    :type="type"
-    :value="inputValue"
-    :placeholder="placeholder"
-    @input="handleChange"
-    @change="onChange"
-    @blur="handleBlur"
-    :aria-label="ariaLabel"
-    :class="inputClass"
-    :required="required"
-    autocomplete="off"
-  />
+
+  <div class="relative">
+    <input
+      v-bind="$attrs"
+      :id="id"
+      :type="type"
+      :value="inputValue"
+      :placeholder="placeholder"
+      @input="handleChange"
+      @change="onChange"
+      @blur="handleBlur"
+      :aria-label="ariaLabel"
+      :class="[inputClass, { 'pl-10': leftIcon, 'pr-10': rightIcon }]"
+      :required="required"
+      autocomplete="off"
+    />
+    <div
+      v-if="leftIcon || customLeftIcon"
+      class="absolute inset-y-0 left-0 flex items-center pl-3"
+    >
+      <img v-if="leftIcon" :src="leftIcon" class="h-5 w-5" alt="left-icon" />
+      <slot name="customLeftIcon"></slot>
+    </div>
+    <div
+      v-if="rightIcon || customRightIcon"
+      class="absolute inset-y-0 right-0 flex items-center pr-3"
+    >
+      <img v-if="rightIcon" :src="rightIcon" class="h-5 w-5" alt="right-icon" />
+      <slot name="customRightIcon"></slot>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -35,7 +52,6 @@ const inputTypes = [
   "color",
   "hidden",
   "url",
-  "search",
   "date",
 ];
 
@@ -84,6 +100,10 @@ export default {
       required: false,
     },
     ariaLabel: String,
+    leftIcon: String,
+    rightIcon: String,
+    customLeftIcon: Boolean,
+    customRightIcon: Boolean,
   },
   setup(props, { emit }) {
     const inputValue = ref(props.value);

@@ -123,7 +123,7 @@ import CloseIcon from "../assets/close-icon.png";
 import AppInput from "../components/forms/AppInput";
 import AppSelect from "../components/forms/AppSelect";
 import ColorIndicator from "../components/ColorIndicator";
-import {PRIMARY_THEME_COLOR, SECONDARY_THEME_COLOR} from "../utils/constant"
+import { PRIMARY_THEME_COLOR, SECONDARY_THEME_COLOR } from "../utils/constant";
 
 export default {
   name: "AppCustomizer",
@@ -197,7 +197,10 @@ export default {
           "--secondary-color",
           secondaryColor
         );
-        localStorage.setItem(SECONDARY_THEME_COLOR, JSON.stringify(secondaryColor));
+        localStorage.setItem(
+          SECONDARY_THEME_COLOR,
+          JSON.stringify(secondaryColor)
+        );
       }
     };
     const onResetTheme = () => {
@@ -215,22 +218,25 @@ export default {
     };
 
     onMounted(() => {
-      const primaryTheme = JSON.parse(localStorage.getItem(PRIMARY_THEME_COLOR));
-      const secondaryTheme = JSON.parse(localStorage.getItem(SECONDARY_THEME_COLOR));
-     
-        if (primaryTheme) {
-          document.documentElement.style.setProperty(
-            "--primary-color",
-            primaryTheme
-          );
-        }
-        if (secondaryTheme) {
-          document.documentElement.style.setProperty(
-            "--secondary-color",
-            secondaryTheme
-          );
-        }
-      
+      const primaryTheme = JSON.parse(
+        localStorage.getItem(PRIMARY_THEME_COLOR)
+      );
+      const secondaryTheme = JSON.parse(
+        localStorage.getItem(SECONDARY_THEME_COLOR)
+      );
+
+      if (primaryTheme) {
+        document.documentElement.style.setProperty(
+          "--primary-color",
+          primaryTheme
+        );
+      }
+      if (secondaryTheme) {
+        document.documentElement.style.setProperty(
+          "--secondary-color",
+          secondaryTheme
+        );
+      }
     });
 
     return {

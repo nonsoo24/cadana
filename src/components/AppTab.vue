@@ -31,22 +31,15 @@
           </p>
         </div>
       </div>
-      <div class="relative">
+
         <AppInput
           v-model="inputValue"
           id="search"
           placeholder="Search"
           @onChange="handleChange"
           inputClass="outline-none bg-white dark:bg-dark-1 dark:text-white text-textColor2"
+          :leftIcon="SearchIcon"
         />
-        <img
-          :src="SearchIcon"
-          alt="search-icon"
-          width="13.33px"
-          height="13.33px"
-          class="left-[-20px] top-[5px] absolute"
-        />
-      </div>
     </div>
   </div>
 
