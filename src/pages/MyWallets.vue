@@ -152,6 +152,7 @@ import { useDark } from "@vueuse/core";
 import PlusPrimary from "../assets/plus-primary.png";
 import PlusSecondary from "../assets/plus-secondary.png";
 import AppInput from "../components/forms/AppInput.vue";
+import SearchIcon from "../assets/icons/search.png";
 
 export default {
   name: "MyWallets",
@@ -225,6 +226,7 @@ export default {
       ArrowDown,
       handleChange,
       inputValue,
+      SearchIcon
     };
   },
 };

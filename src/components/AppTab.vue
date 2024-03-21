@@ -11,7 +11,7 @@
         class="flex gap-8 pb-1"
         role="tab"
         :aria-selected="activeTab === index"
-        :id="'tab-' + index"
+        :id="`tab-${activeTab}`"
         tabindex="0"
       >
         <div
