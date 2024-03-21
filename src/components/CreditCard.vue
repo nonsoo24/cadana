@@ -32,7 +32,7 @@
       ]"
     >
       <img :src="Chip" alt="chip-icon" width="37.92px" height="30px" />
-      <img :src="WiFi" alt="wifi-icon" width="33px" height="34px" />
+      <img :src="isDark ?  WiFiDark : WiFi" alt="wifi-icon" width="33px" height="34px" />
     </div>
     <div
       class="mt-4"
@@ -69,7 +69,9 @@
 <script>
 import Chip from "../assets/chip.png";
 import WiFi from "../assets/wifi.png";
+import WiFiDark from "../assets/wifi-dark.png";
 import MasterCard from "../assets/master-card.png";
+import { useDark } from "@vueuse/core";
 
 export default {
   name: "CreditCard",
@@ -110,9 +112,12 @@ export default {
   },
 
   setup() {
+    const isDark = useDark();
     return {
       Chip,
       WiFi,
+      WiFiDark,
+      isDark
     };
   },
 };
@@ -127,17 +132,16 @@ export default {
     font-family: 'Gordita', sans-serif;
 }
 .card-wrapper {
-  background-image: linear-gradient(180deg, #4a4a49 0%, #20201f 100%);
-  border-radius: 15px;
+  @apply bg-gradient-to-b from-background-1 to-background-2 dark:bg-gradient-to-b border-[15px];
 }
 .card-wrapper-mastercard {
-  background-image: linear-gradient(180deg, #4a4a49 0%, #20201f 100%);
+  @apply bg-gradient-to-r from-background-1 to-background-2 dark:bg-gradient-to-b dark:from-background-3 dark:to-background-4
 }
 .card-owner-mastercard p:first-child {
   @apply text-white text-size3 font-bold border-r border-r-grey-4 pr-3;
 }
 .card-owner-mastercard p:last-child {
-  @apply text-size4 font-medium text-grey-4;
+  @apply text-size4 font-medium text-grey-4 dark:text-textColor-3;
 }
 
 .card-number-mastercard p {
@@ -152,7 +156,6 @@ export default {
   background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.1));
   backdrop-filter: blur(10px);
   border-radius: 15px;
-
 }
 .card-owner-visa p:first-child {
   @apply text-white text-size3 font-bold border-r border-r-grey-4 pr-3;

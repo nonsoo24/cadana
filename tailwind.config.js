@@ -12,6 +12,12 @@ module.exports = {
         secondary: 'var(--secondary-color)',
         white: '#FFFFFF',
         success: '#19D076',
+        background: {
+          1: "#4a4a49",
+          2: "#20201f",
+          3: "#2E2B4A",
+          4: "#29263F"
+        },
         grey: {
          1: '#FAFAFA',
          2: '#FDFDFD',
