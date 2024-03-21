@@ -124,13 +124,6 @@ export default {
 </script>
 
 <style scoped>
-@font-face {
-    font-family: 'Gordita';
-    src: url('../assets/fonts/gordita/Gordita-Medium.otf');
-}
-.font-gordita {
-    font-family: 'Gordita', sans-serif;
-}
 .card-wrapper {
   @apply bg-gradient-to-b from-background-1 to-background-2 dark:bg-gradient-to-b border-[15px];
 }
