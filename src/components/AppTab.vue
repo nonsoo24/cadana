@@ -1,6 +1,8 @@
 <template>
   <div class="w-auto">
-    <div class=" flex justify-between items-center border-b-grey-3 dark:border-dark-3 border-b">
+    <div
+      class="flex justify-between items-center border-b-grey-3 dark:border-dark-3 border-b"
+    >
       <div
         :class="{
           'border-secondary border-b-4 ': activeTab === index,
@@ -19,7 +21,8 @@
         >
           <p
             :class="{
-              'text-textColor-1 font-semibold dark:text-white': activeTab === index,
+              'text-textColor-1 font-semibold dark:text-white':
+                activeTab === index,
               'text-textColor-2': activeTab !== index,
             }"
             class="text-size4 text-left"
@@ -28,13 +31,22 @@
           </p>
         </div>
       </div>
-      <AppInput
-      v-model="inputValue"
-      id="search"
-      placeholder="Search"
-      @onChange="handleChange"
-      inputClass="outline-none bg-white dark:bg-dark-1 dark:text-white text-textColor2"
-    />
+      <div class="relative">
+        <AppInput
+          v-model="inputValue"
+          id="search"
+          placeholder="Search"
+          @onChange="handleChange"
+          inputClass="outline-none bg-white dark:bg-dark-1 dark:text-white text-textColor2"
+        />
+        <img
+          :src="SearchIcon"
+          alt="search-icon"
+          width="13.33px"
+          height="13.33px"
+          class="left-[-20px] top-[5px] absolute"
+        />
+      </div>
     </div>
   </div>
 
@@ -46,6 +58,7 @@
 <script>
 import { ref, watch } from "vue";
 import AppInput from "../components/forms/AppInput.vue";
+import SearchIcon from "../assets/icons/search.png";
 
 export default {
   name: "AppTab",
@@ -82,6 +95,7 @@ export default {
       activeComponent,
       inputValue,
       handleChange,
+      SearchIcon,
     };
   },
 };
@@ -89,12 +103,12 @@ export default {
 
 <style scoped>
 .active-tab::before {
-content: '';
-position: absolute;
-bottom: -5px;
-background-color: #FFF0EB;
-height: 3px;
-width: 100%;
-left: 0
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  background-color: #fff0eb;
+  height: 3px;
+  width: 100%;
+  left: 0;
 }
 </style>
