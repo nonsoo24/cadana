@@ -48,17 +48,21 @@
                 />
               </div>
               <div class="flex gap-4 items-end">
-                <AppIcon name="arrow-up" />
-                <p class="font-medium text-size4 text-success">
-                  {{ accountSummary.percentageGain }}
-                </p>
-                <AppIcon name="arrow-down" />
-                <p class="font-medium text-size4 text-error">
-                  {{ accountSummary.percentageLoss }}
-                </p>
+                <div class="flex items-center gap-1">
+                  <img :src="ArrowUp" class="h-4 w-4" alt="arrow-up" />
+                  <p class="font-medium text-size4 text-success">
+                    {{ accountSummary.percentageGain }}
+                  </p>
+                </div>
+                <div class="flex items-center gap-1">
+                  <img :src="ArrowDown" class="h-4 w-4" alt="arrow-down" />
+                  <p class="font-medium text-size4 text-error">
+                    {{ accountSummary.percentageLoss }}
+                  </p>
+                </div>
               </div>
             </div>
-            <div class="flex justify-center my-5 mx-5">
+            <div class="my-5 mx-1">
               <div class="border-b border-b-grey-3 w-[289px]" />
             </div>
             <div class="grid grid-cols-2 gap-5">
@@ -121,7 +125,8 @@ import TransactionList from "../components/TransactionList.vue";
 import AppButton from "../components/forms/AppButton.vue";
 import AppTab from "../components/AppTab.vue";
 import NavBar from "../components/NavBar.vue";
-import AppIcon from "../components/AppIcon.vue";
+import ArrowUp from "../assets/arrow-up.png";
+import ArrowDown from "../assets/arrow-down.png";
 import CreditCard from "../components/CreditCard.vue";
 import AppAmount from "../components/AppAmount.vue";
 import toAmount from "../utils/toAmount";
@@ -141,7 +146,6 @@ export default {
     AppTitle,
     TransactionList,
     AppTab,
-    AppIcon,
     AppButton,
     AppAmount,
     CreditCard,
@@ -198,6 +202,8 @@ export default {
       isDark,
       PlusPrimary,
       PlusSecondary,
+      ArrowUp,
+      ArrowDown,
     };
   },
 };
