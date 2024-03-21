@@ -20,7 +20,12 @@
       :aria-label="ariaLabel"
       :class="[inputClass, { 'pl-10': leftIcon, 'pr-10': rightIcon }]"
       :required="required"
-      autocomplete="off"
+      :autocomplete="off"
+      :aria-autocomplete="off"
+      :aria-required="required"
+      :aria-invalid="isInvalid"
+      :aria-describedby="errorId"
+      :disabled="disabled"
     />
     <div
       v-if="leftIcon || customLeftIcon"
@@ -99,11 +104,34 @@ export default {
       default: () => {},
       required: false,
     },
-    ariaLabel: String,
-    leftIcon: String,
-    rightIcon: String,
-    customLeftIcon: Boolean,
-    customRightIcon: Boolean,
+    ariaLabel:  {
+      type: String,
+      default: '',
+    },
+    leftIcon:  {
+      type: String,
+      default: '',
+    },
+    rightIcon:  {
+      type: String,
+      default: '',
+    },
+    customLeftIcon:  {
+      type: Boolean,
+      default: false,
+    },
+    customRightIcon:  {
+      type: Boolean,
+      default: false,
+    },
+    autocomplete:  {
+      type: String,
+      default: "off",
+    },
+    disabled:  {
+      type: Boolean,
+      default: false,
+    },
   },
   setup(props, { emit }) {
     const inputValue = ref(props.value);
