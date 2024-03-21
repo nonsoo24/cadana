@@ -42,7 +42,7 @@ import UserDropDown from "../components/UserDropDown.vue";
 import Moon from "../assets/moon.png";
 import Sun from "../assets/sun.png";
 import { useDark } from "@vueuse/core";
-import { ROUTES } from "@/utils/constant";
+import { ROUTES } from "../utils/constant";
 
 export default {
   name: "NavBar",
