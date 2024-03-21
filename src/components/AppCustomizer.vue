@@ -23,7 +23,7 @@
       </div>
 
       <form>
-        <fieldset>
+        <fieldset class="border-0">
           <div class="flex justify-center mt-10">
             <div class="w-full">
               <div class="w-full px-5">

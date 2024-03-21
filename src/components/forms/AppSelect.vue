@@ -10,6 +10,7 @@
         :id="id"
         v-model="selectedOption"
         :class="inputClass"
+        class="appearance-none"
         aria-label="Select an option"
         @change="handleChange"
       >
