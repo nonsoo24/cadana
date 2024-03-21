@@ -6,7 +6,7 @@
       <NavBar />
 
       <div
-        class="overflow-x-hidden h-full overflow-y-auto bg-white dark:bg-dark-1"
+        class="overflow-x-hidden h-full overflow-y-auto bg-white dark:bg-dark-2"
       >
         <div class="pt-5">
           <slot />
