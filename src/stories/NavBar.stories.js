@@ -2,7 +2,7 @@ import { ref } from 'vue';
 import NavBar from '../components/NavBar.vue';
 
 export default {
-  title: 'NavBar',
+  title: 'Components/NavBar',
   component: NavBar,
   parameters: {
     layout: 'fullscreen',

@@ -1,43 +1,43 @@
-import { fn } from '@storybook/test';
+// Import necessary dependencies
 import AppButton from '../components/forms/AppButton.vue';
 
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories
+// Export default object with title and component
 export default {
-  title: 'AppButton',
+  title: 'Components/AppButton', // Title of the story
   component: AppButton,
   tags: ['autodocs'],
-  argTypes: {
-    size: { control: { type: 'select' }, options: ['small', 'medium', 'large'] },
-    backgroundColor: { control: 'color' },
-  },
-  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
-  args: { onClick: fn() },
 };
 
-// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Primary = {
-  args: {
-    primary: true,
-    label: 'Button',
-  },
+// Define a template for the story
+const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes), // Pass props as arguments
+  components: { AppButton }, // Component to be rendered
+  template: '<AppButton v-bind="$props" />', // Template for rendering the component
+});
+
+// Define the Default story
+export const Default = Template.bind({});
+Default.args = {
+  label: 'Click me', // Set the label for the button
 };
 
-export const Secondary = {
-  args: {
-    label: 'Button',
-  },
+// Define the Disabled story
+export const Disabled = Template.bind({});
+Disabled.args = {
+  label: 'Disabled Button', // Set the label for the disabled button
+  disabled: true, // Set the disabled property to true
 };
 
-export const Large = {
-  args: {
-    size: 'large',
-    label: 'Button',
-  },
+// Define the Button with Icon story
+export const WithIcon = Template.bind({});
+WithIcon.args = {
+  label: 'Button with Icon', // Set the label for the button
+  icon: '../assets/plus-primary.png', // Set the path to the icon image
 };
 
-export const Small = {
-  args: {
-    size: 'small',
-    label: 'Button',
-  },
+// Define the Secondary Button story
+export const Secondary = Template.bind({});
+Secondary.args = {
+  label: 'Secondary Button', // Set the label for the secondary button
+  variant: 'secondary', // Set the variant to 'secondary'
 };
