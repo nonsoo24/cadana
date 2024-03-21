@@ -132,6 +132,7 @@ import AppInput from "../components/forms/AppInput";
 import AppSelect from "../components/forms/AppSelect";
 import ColorIndicator from "../components/ColorIndicator";
 import { PRIMARY_THEME_COLOR, SECONDARY_THEME_COLOR } from "../utils/constant";
+import { saveToStorage, getFromStorage, removeToStorage } from "../utils/store";
 
 export default {
   name: "AppCustomizer",
@@ -197,7 +198,7 @@ export default {
           "--primary-color",
           primaryColor
         );
-        localStorage.setItem(PRIMARY_THEME_COLOR, JSON.stringify(primaryColor));
+        saveToStorage({key: PRIMARY_THEME_COLOR, data:JSON.stringify(primaryColor)  })
       }
 
       if (secondaryColor) {
@@ -205,10 +206,7 @@ export default {
           "--secondary-color",
           secondaryColor
         );
-        localStorage.setItem(
-          SECONDARY_THEME_COLOR,
-          JSON.stringify(secondaryColor)
-        );
+        saveToStorage({key: SECONDARY_THEME_COLOR, data:JSON.stringify(secondaryColor)  })
       }
     };
     const onResetTheme = () => {
@@ -217,8 +215,9 @@ export default {
         "--secondary-color",
         "#FFF0EB"
       );
-      localStorage.removeItem(PRIMARY_THEME_COLOR);
-      localStorage.removeItem(SECONDARY_THEME_COLOR);
+
+      removeToStorage(PRIMARY_THEME_COLOR)
+      removeToStorage(SECONDARY_THEME_COLOR)
     };
 
     const toggleCustomizer = () => {
@@ -227,10 +226,10 @@ export default {
 
     onMounted(() => {
       const primaryTheme = JSON.parse(
-        localStorage.getItem(PRIMARY_THEME_COLOR)
+        getFromStorage(PRIMARY_THEME_COLOR)
       );
       const secondaryTheme = JSON.parse(
-        localStorage.getItem(SECONDARY_THEME_COLOR)
+        getFromStorage(SECONDARY_THEME_COLOR)
       );
 
       if (primaryTheme) {
