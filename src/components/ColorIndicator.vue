@@ -37,7 +37,6 @@
           "flex",
           "items-center",
           "justify-center",
-          "absolute",
           this.position,
         ];
       },

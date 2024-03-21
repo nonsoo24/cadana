@@ -48,15 +48,18 @@
                   placeholder="Enter primary color"
                   inputClass="bg-white border border-grey-3 text-text-textColor-1 font-medium text-size4 outline-none rounded-lg focus:ring-grey-3 focus:border-grey-3 block w-full p-2.5 h-[48px] dark:text-white dark:bg-dark-4"
                   :required="true"
+                  :customRightIcon="true"
                   @change="handlePrimaryColor"
-                />
-                <ColorIndicator
+                >
+                <template v-slot:customRightIcon>
+                  <ColorIndicator
                   backgroundColor="bg-primary"
                   dotColor="bg-white"
                   dotSize="w-[5px] h-[5px]"
                   size="w-[19.2px] h-[19.2px]"
-                  position="right-8 top-10"
                 />
+                </template>
+              </AppInput>
               </div>
               <div
                 class="border-b border-b-grey-5 w-full my-8 dark:border-b-dark-2"
@@ -70,16 +73,19 @@
                   placeholder="Enter secondary color"
                   inputClass="bg-white border border-grey-3 text-text-textColor-1 font-medium text-size4 dark:text-white outline-none rounded-lg focus:ring-grey-3 focus:border-grey-3 block w-full p-2.5 h-[48px] dark:bg-dark-4"
                   :required="true"
+                  :customRightIcon="true"
                   @change="handleSecondaryColor"
-                />
-
-                <ColorIndicator
+                >
+                <template v-slot:customRightIcon>
+                  <ColorIndicator
                   backgroundColor="bg-secondary"
                   dotColor="bg-white"
                   dotSize="w-[5px] h-[5px]"
                   size="w-[19.2px] h-[19.2px]"
-                  position="right-8 top-10"
                 />
+                </template>
+              </AppInput>
+
               </div>
               <div
                 class="border-b border-b-grey-5 w-full my-8 dark:border-b-dark-2"

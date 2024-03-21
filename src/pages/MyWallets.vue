@@ -100,7 +100,18 @@
           title="My Payments"
           titleClass="font-semibold text-size2 text-textColor-1 text-left mb-4 dark:text-white"
         />
-        <AppTab :tabs="tabs" @tab-click="changeTab" />
+        <AppTab :tabs="tabs" @tab-click="changeTab">
+          <template v-slot:input>
+            <AppInput
+              :value="inputValue"
+              id="search"
+              placeholder="Search"
+              @change="handleChange"
+              inputClass="outline-none bg-white dark:bg-dark-1 dark:text-white text-textColor2"
+              :leftIcon="SearchIcon"
+            />
+          </template>
+        </AppTab>
 
         <section>
           <AppTitle
@@ -139,6 +150,7 @@ import VisaLogoLight from "../assets/visa-dark.png";
 import { useDark } from "@vueuse/core";
 import PlusPrimary from "../assets/plus-primary.png";
 import PlusSecondary from "../assets/plus-secondary.png";
+import AppInput from "../components/forms/AppInput.vue";
 
 export default {
   name: "MyWallets",
@@ -150,9 +162,11 @@ export default {
     AppAmount,
     CreditCard,
     NavBar,
+    AppInput,
   },
   setup() {
     const isDark = useDark();
+    const inputValue = ref("");
     const accountSummary = ref({
       balance: 5240,
       percentageGain: "23.65%",
@@ -189,6 +203,10 @@ export default {
       activeTab.value = index;
     };
 
+    const handleChange = (value) => {
+      console.log("Input value changed:", value);
+    };
+
     return {
       upComingPayments,
       activeTab,
@@ -204,6 +222,8 @@ export default {
       PlusSecondary,
       ArrowUp,
       ArrowDown,
+      handleChange,
+      inputValue,
     };
   },
 };

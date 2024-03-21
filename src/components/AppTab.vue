@@ -32,14 +32,7 @@
         </div>
       </div>
 
-        <AppInput
-          v-model="inputValue"
-          id="search"
-          placeholder="Search"
-          @onChange="handleChange"
-          inputClass="outline-none bg-white dark:bg-dark-1 dark:text-white text-textColor2"
-          :leftIcon="SearchIcon"
-        />
+      <slot name="input"></slot>
     </div>
   </div>
 
@@ -74,10 +67,6 @@ export default {
       emit("tab-click", index);
     };
 
-    const handleChange = (value) => {
-      console.log("Input value changed:", value);
-    };
-
     watch(activeTab, (newValue) => {
       activeComponent.value = props.tabs[newValue].component;
     });
@@ -87,7 +76,6 @@ export default {
       handleTabClick,
       activeComponent,
       inputValue,
-      handleChange,
       SearchIcon,
     };
   },
