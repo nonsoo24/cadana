@@ -4,7 +4,7 @@
     tabindex="0"
   >
     <p class="font-semibold text-size1 text-textColor-1 dark:text-white pl-3">
-      {{ $route.meta.pageTitle }}
+      {{ $route?.meta?.pageTitle }}
     </p>
     <div class="flex items-center gap-11">
       <button
@@ -42,6 +42,7 @@ import UserDropDown from "../components/UserDropDown.vue";
 import Moon from "../assets/moon.png";
 import Sun from "../assets/sun.png";
 import { useDark } from "@vueuse/core";
+import { ROUTES } from "@/utils/constant";
 
 export default {
   name: "NavBar",
@@ -60,11 +61,11 @@ export default {
     const dropdownOptions = ref([
       {
         label: "Profile",
-        route: "/",
+        route: ROUTES.DASHBOARD,
       },
       {
         label: "Settings",
-        route: "/",
+        route: ROUTES.DASHBOARD,
       },
     ]);
 
