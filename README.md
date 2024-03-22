@@ -34,6 +34,8 @@ The project is configured with Vue.js 3 and Tailwind CSS.
 
 ## Preview
 
+[Click here](https://cadana-ten.vercel.app) to preview the app.
+
 ![Alt text](./src/assets//preview.png?raw=true "Cadana Light Mode")
 ![Alt text](./src/assets//preview2.png?raw=true "Cadana Dark Mode")
 
