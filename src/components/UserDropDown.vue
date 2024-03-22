@@ -5,6 +5,7 @@
       class="inline-flex items-center px-4 py-2 rounded-[100px] shadow-sm text-sm font-medium text-gray-700 bg-grey-1 hover:bg-gray-50 focus:outline-none w-auto gap-6 outline-none dark:bg-dark-1"
       aria-haspopup="true"
       aria-expanded="true"
+      aria-label="dropdown icon"
     >
       <div class="rounded-full w-[36px] h-[36px]">
         <img :src="User" alt="user-picture" width="36px" height="36px" />

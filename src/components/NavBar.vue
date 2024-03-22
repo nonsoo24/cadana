@@ -12,10 +12,11 @@
         v-if="!isDarkMode"
         @click="toggleTheme"
         tabindex="0"
+        aria-label="Light Mode Button"
       >
         <VsxIcon iconName="Moon" size="25" :color="colors.textColor[3]" type="bold" />
       </button>
-      <button class="outline-none" v-else @click="toggleTheme"  tabindex="0">
+      <button class="outline-none" v-else @click="toggleTheme"  tabindex="0"  aria-label="Light Mode Button">
         <VsxIcon iconName="Sun1" :size="25" :color="colors.textColor[3]" type="bold" />
       </button>
 

@@ -17,6 +17,7 @@
           @click="toggleCustomizer"
           class="outline-none"
           aria-pressed="false"
+          aria-label="Close button"
         >
           <img :src="CloseIcon" alt="close-icon" width="34px" height="20px" />
         </button>
