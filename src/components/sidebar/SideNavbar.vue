@@ -4,7 +4,7 @@
     aria-label="Sidebar"
   >
     <div class="h-full overflow-y-auto">
-      <ul class="list-none p-0">
+      <ul class="list-none p-0" role="menu">
         <li>
           <router-link :to="ROUTES.DASHBOARD" class="flex items-center p-2 mb-10">
             <figure class="cursor-pointer mt-5">
