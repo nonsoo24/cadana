@@ -21,7 +21,7 @@ The project is configured with Vue.js 3 and Tailwind CSS.
 
 ## Getting Started
 
-1. Clone this repo, `git clone https://github.com/nonsoo24/cadana.git`
+1. Clone this repo using this command: `git clone git clone https://github.com/nonsoo24/cadana.git`
 2. Run `yarn install` to install dependencies
 
 3. Start the project with `npm run serve`
