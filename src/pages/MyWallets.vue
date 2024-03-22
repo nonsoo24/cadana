@@ -49,13 +49,14 @@
               </div>
               <div class="flex gap-4 items-end">
                 <div class="flex items-center gap-1">
-                  <img :src="ArrowUp" class="h-4 w-4" alt="arrow-up" />
+                  <VsxIcon iconName="ArrowUp" :size="16" :color="colors.success" />
                   <p class="font-medium text-size4 text-success">
                     {{ accountSummary.percentageGain }}
                   </p>
                 </div>
                 <div class="flex items-center gap-1">
                   <img :src="ArrowDown" class="h-4 w-4" alt="arrow-down" />
+                  <VsxIcon iconName="ArrowDown" :size="16" :color="colors.error" />
                   <p class="font-medium text-size4 text-error">
                     {{ accountSummary.percentageLoss }}
                   </p>
@@ -84,7 +85,8 @@
             label="Add New Card"
             ariaLabel="Add New Card"
             type="button"
-            :icon="isDark ? PlusSecondary : PlusPrimary"
+            iconName="Add"
+            :iconColor="isDark ? '#FFF0EB' : '#E75423'"
             width="w-[354px]"
             variant="secondary"
             buttonClass="rounded-lg mx-5 my-3  !dark:bg-dark-2 !dark:text-secondary"
@@ -109,7 +111,7 @@
               placeholder="Search"
               @change="handleChange"
               inputClass="outline-none bg-white dark:bg-dark-1 dark:text-white text-textColor2"
-              :leftIcon="SearchIcon"
+              iconName="SearchNormal1"
             />
           </template>
         </AppTab>
@@ -153,6 +155,7 @@ import PlusPrimary from "../assets/plus-primary.png";
 import PlusSecondary from "../assets/plus-secondary.png";
 import AppInput from "../components/forms/AppInput.vue";
 import SearchIcon from "../assets/icons/search.png";
+import colors from "../utils/colors"
 
 export default {
   name: "MyWallets",
@@ -226,7 +229,8 @@ export default {
       ArrowDown,
       handleChange,
       inputValue,
-      SearchIcon
+      SearchIcon,
+      colors,
     };
   },
 };

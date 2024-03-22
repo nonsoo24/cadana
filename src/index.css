@@ -14,7 +14,7 @@
 
 html,
 body {
-  @apply bg-white transition-colors duration-150 dark:bg-dark-2
+  @apply bg-white transition-colors duration-300 dark:bg-dark-2
 }
 
 @font-face {

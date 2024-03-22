@@ -32,7 +32,7 @@
 
     <div
       v-if="isOpen"
-      class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+      class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-dark-2"
       role="menu"
       aria-orientation="vertical"
       aria-labelledby="options-menu"
@@ -44,7 +44,7 @@
           v-for="(option, index) in options"
           :key="index"
           @click.prevent="selectOption(option)"
-          class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+          class="block px-4 py-2 text-size4 text-textColor-2 hover:bg-gray-100 hover:text-gray-900 dark:text-white dark:bg-dark-3 dark:hover:text-textColor-2"
           role="menuitem"
           ref="menuitem"
           :tabindex="isOpen ? 0 : -1"

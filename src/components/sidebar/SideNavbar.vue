@@ -29,7 +29,7 @@
           v-for="menu in sideMenuItems"
           :key="menu.title"
           :title="menu.title"
-          :icon="menu.icon"
+          :iconName="menu.iconName"
           :route="menu.route"
         />
       </ul>
@@ -41,12 +41,7 @@
             v-for="item in otherMenus"
             :key="item.title"
           >
-            <img
-              :src="item.icon"
-              :alt="item.title"
-              width="20px"
-              height="20px"
-            />
+          <VsxIcon :iconName="item.iconName" size="20" :color="colors.textColor[2]" type="bold" />
             <p
               class="text-textColor-2 text-size4 font-medium whitespace-nowrap cursor-pointer"
               @click="item.handler"
@@ -67,6 +62,8 @@ import CadanaLogoLight from "../../assets/cadana-logo-light.png";
 import CadanaLogoDark from "../../assets/cadana-logo-dark.png";
 import { useDark } from "@vueuse/core";
 import { ROUTES } from "../../utils/constant";
+import colors from "../../utils/colors";
+
 export default {
   name: "SideNavbar",
   components: {
@@ -77,17 +74,17 @@ export default {
     const sideMenuItems = ref([
       {
         title: "Dashboard",
-        icon: require("../../assets/icons/home.png"),
+        iconName: 'Home2',
         route: ROUTES.DASHBOARD,
       },
       {
         title: "Invoices",
-        icon: require("../../assets/icons/invoices.png"),
+        iconName: 'TransactionMinus',
         route: ROUTES.INVOICES,
       },
       {
         title: "My Wallets",
-        icon: require("../../assets/icons/wallet-active.png"),
+        iconName: 'EmptyWallet',
         route: ROUTES.MY_WALLET,
       },
     ]);
@@ -102,12 +99,12 @@ export default {
     const otherMenus = ref([
       {
         title: "Customization",
-        icon: require("../../assets/icons/settings.png"),
+        iconName: "Setting2",
         handler: handleCustomization,
       },
       {
         title: "Logout",
-        icon: require("../../assets/icons/logout.png"),
+        iconName: "Logout",
         handler: onLogout,
       },
     ]);
@@ -120,8 +117,8 @@ export default {
       CadanaLogoDark,
       isDark,
       otherMenus,
-
-      ROUTES
+      ROUTES,
+      colors
     };
   },
 };

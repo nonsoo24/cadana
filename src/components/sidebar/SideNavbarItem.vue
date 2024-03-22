@@ -10,7 +10,7 @@
       :to="route"
       class="flex items-center text-size4 rounded-lg gap-3 dark:text-white"
     >
-      <img :src="icon" :alt="title" width="20px" height="20px" />
+      <VsxIcon :iconName="iconName" :color="$route.path === route ? colors.white : colors.textColor[2]" size="20" type="bold" />
       <span
         :class="{
           'text-white text-size4 font-semibold': $route.path === route,
@@ -25,6 +25,7 @@
 
 <script>
 import { useRouter } from "vue-router";
+import colors from "../../utils/colors"
 export default {
   name: "SideNavbarItem",
   props: {
@@ -33,10 +34,10 @@ export default {
       default: "",
       required: true,
     },
-    icon: {
+    iconName: {
       type: String,
-      default: "",
-      required: false,
+      default: "Home2",
+      required: true,
     },
     route: {
       type: String,
@@ -51,6 +52,7 @@ export default {
     };
     return {
       activateMenuItem,
+      colors
     };
   },
 };

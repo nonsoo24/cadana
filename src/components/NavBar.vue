@@ -13,22 +13,10 @@
         @click="toggleTheme"
         tabindex="0"
       >
-        <img
-          :src="Moon"
-          alt="dropdown-icon"
-          width="25px"
-          height="25px"
-          class="cursor-pointer"
-        />
+        <VsxIcon iconName="Moon" size="25" :color="colors.textColor[3]" type="bold" />
       </button>
-      <button class="outline-none" v-else @click="toggleTheme">
-        <img
-          :src="Sun"
-          alt="dropdown-icon"
-          width="25px"
-          height="25px"
-          class="cursor-pointer"
-        />
+      <button class="outline-none" v-else @click="toggleTheme"  tabindex="0">
+        <VsxIcon iconName="Sun1" :size="25" :color="colors.textColor[3]" type="bold" />
       </button>
 
       <UserDropDown :options="dropdownOptions" label="Mahfuzul Nabil" />
@@ -43,6 +31,7 @@ import Moon from "../assets/moon.png";
 import Sun from "../assets/sun.png";
 import { useDark } from "@vueuse/core";
 import { ROUTES } from "../utils/constant";
+import colors from "../utils/colors";
 
 export default {
   name: "NavBar",
@@ -79,6 +68,7 @@ export default {
       Sun,
       toggleTheme,
       isDarkMode,
+      colors
     };
   },
 };

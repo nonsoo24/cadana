@@ -18,7 +18,7 @@
       @change="onChange"
       @blur="handleBlur"
       :aria-label="ariaLabel"
-      :class="[inputClass, { 'pl-10': leftIcon, 'pr-10': rightIcon }]"
+      :class="[inputClass, { 'pl-10': leftIcon || iconName, 'pr-10': rightIcon }]"
       :required="required"
       :autocomplete="off"
       :aria-autocomplete="off"
@@ -28,10 +28,11 @@
       :disabled="disabled"
     />
     <div
-      v-if="leftIcon || customLeftIcon"
+      v-if="leftIcon || iconName|| customLeftIcon"
       class="absolute inset-y-0 left-0 flex items-center pl-3"
     >
       <img v-if="leftIcon" :src="leftIcon" class="h-5 w-5" alt="left-icon" />
+      <VsxIcon v-if="iconName" :iconName="iconName" :size="iconSize" :color="iconColor" :type="iconType" />
       <slot name="customLeftIcon"></slot>
     </div>
     <div
@@ -46,6 +47,7 @@
 
 <script>
 import { ref, watch } from "vue";
+import colors from "../../utils/colors"
 const inputTypes = [
   "text",
   "email",
@@ -131,6 +133,22 @@ export default {
     disabled:  {
       type: Boolean,
       default: false,
+    },
+    iconName: {
+      type: String,
+      default: "",
+    },
+    iconSize: {
+      type: Number,
+      default: 20,
+    },
+    iconType: {
+      type: String,
+      default: "linear",
+    },
+    iconColor: {
+      type: String,
+      default: colors.textColor[2],
     },
   },
   setup(props, { emit }) {

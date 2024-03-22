@@ -17,20 +17,15 @@
       :aria-disabled="disabled"
       @click="onClick"
     >
-      <img
-        v-if="icon"
-        :src="icon"
-        alt="button-icon"
-        width="20px"
-        height="20px"
-        class="absolute left-[100px]"
-      />
+      <VsxIcon v-if="iconName" :iconName="iconName" :size="iconSize" :color="iconColor" :type="iconType" />
       {{ label }}
     </button>
   </div>
 </template>
 
 <script>
+import colors from "../../utils/colors.js";
+
 export default {
   name: "AppButton",
   props: {
@@ -48,9 +43,21 @@ export default {
       type: Boolean,
       default: false,
     },
-    icon: {
+    iconName: {
       type: String,
       default: "",
+    },
+    iconSize: {
+      type: Number,
+      default: 20,
+    },
+    iconType: {
+      type: String,
+      default: "linear",
+    },
+    iconColor: {
+      type: String,
+      default: colors.textColor[2],
     },
     buttonClass: {
       type: String,
