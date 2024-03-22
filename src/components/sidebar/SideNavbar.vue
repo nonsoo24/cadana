@@ -5,8 +5,11 @@
   >
     <div class="h-full overflow-y-auto">
       <ul class="list-none p-0" role="menu">
-        <li>
-          <router-link :to="ROUTES.DASHBOARD" class="flex items-center p-2 mb-10">
+        <li role="cadana logo">
+          <router-link
+            :to="ROUTES.DASHBOARD"
+            class="flex items-center p-2 mb-10"
+          >
             <figure class="cursor-pointer mt-5">
               <img
                 v-if="!isDark"
@@ -41,7 +44,12 @@
             v-for="item in otherMenus"
             :key="item.title"
           >
-          <VsxIcon :iconName="item.iconName" size="20" :color="colors.textColor[2]" type="bold" />
+            <VsxIcon
+              :iconName="item.iconName"
+              size="20"
+              :color="colors.textColor[2]"
+              type="bold"
+            />
             <p
               class="text-textColor-2 text-size4 font-medium whitespace-nowrap cursor-pointer"
               @click="item.handler"
@@ -74,17 +82,17 @@ export default {
     const sideMenuItems = ref([
       {
         title: "Dashboard",
-        iconName: 'Home2',
+        iconName: "Home2",
         route: ROUTES.DASHBOARD,
       },
       {
         title: "Invoices",
-        iconName: 'TransactionMinus',
+        iconName: "TransactionMinus",
         route: ROUTES.INVOICES,
       },
       {
         title: "My Wallets",
-        iconName: 'EmptyWallet',
+        iconName: "EmptyWallet",
         route: ROUTES.MY_WALLET,
       },
     ]);
@@ -118,7 +126,7 @@ export default {
       isDark,
       otherMenus,
       ROUTES,
-      colors
+      colors,
     };
   },
 };
