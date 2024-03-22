@@ -6,6 +6,7 @@ module.exports = {
     extend: {
       fontFamily: {
         inter: ['Inter', 'sans-serif'],
+        gordita: ['Gordita', 'sans-serif'],
       },
       colors: {
         primary: 'var(--primary-color)',
